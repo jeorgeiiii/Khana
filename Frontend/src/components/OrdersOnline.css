@@ -1,0 +1,121 @@
+.order-online-container {
+  background: #fff;
+  min-height: 80vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 0;
+}
+.order-online-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0;
+  padding-left: 24px;
+}
+.order-online-tabs .tab {
+  padding: 16px 18px 12px 0;
+  color: #555;
+  font-size: 16px;
+  cursor: pointer;
+}
+.order-online-tabs .active {
+  color: #e23744;
+  border-bottom: 2px solid #e23744;
+  font-weight: 500;
+}
+.order-online-main {
+  display: flex;
+}
+.order-online-sidebar {
+  width: 220px;
+  background: #fafafa;
+  border-right: 1px solid #eee;
+  padding: 24px 0 0 24px;
+}
+.sidebar-category {
+  margin-bottom: 18px;
+  color: #555;
+  font-size: 15px;
+  cursor: pointer;
+}
+.sidebar-category.active {
+  color: #e23744;
+  font-weight: 500;
+}
+.count {
+  color: #aaa;
+}
+.order-online-content {
+  flex: 1;
+  padding: 32px 40px;
+}
+.order-online-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.live-track {
+  color: #388e3c;
+  font-size: 14px;
+}
+.delivery-time {
+  color: #888;
+  font-size: 14px;
+}
+.search-menu {
+  margin-left: auto;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 220px;
+}
+.combo-list {
+  margin-top: 18px;
+}
+.combo-item {
+  border-bottom: 1px solid #f3f3f3;
+  padding: 14px 0;
+}
+.combo-title {
+  font-size: 16px;
+  color: #222;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+.veg-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #3bb54a;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 1px solid #222;
+}
+.combo-price {
+  color: #388e3c;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+.combo-desc {
+  color: #666;
+  font-size: 14px;
+  margin-top: 2px;
+}
+.read-more {
+  color: #e23744;
+  font-size: 13px;
+  text-decoration: none;
+  margin-top: 2px;
+  display: inline-block;
+}
+.back-btn {
+  margin: 24px;
+  padding: 8px 18px;
+  background: #eee;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}

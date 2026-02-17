@@ -1,0 +1,77 @@
+
+
+//Food Data with ID
+{
+    "success": true,
+    "total_foods": 4,
+    "foods": [
+        {
+            "_id": "679ae5a2a6cf1d9038d20ebc",
+            "Title": "Panner Tikka Masala",
+            "Description": "It is an authentic charcoal roasted panner salad",
+            "Price": 415,
+            "ImageURL": "https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png",
+            "FoodTags": "Veg+ Salad",
+            "Category": "Comfort Food",
+            "Code": "195",
+            "isAvaliable": true,
+            "resturant": "679aa21c7b7abfac403d4c9f",
+            "Rating": 5,
+            "Rating_Count": "3",
+            "createdAt": "2025-01-30T02:36:18.134Z",
+            "updatedAt": "2025-01-30T16:55:45.396Z",
+            "__v": 0
+        },
+        {
+            "_id": "679bb1d43fc78e5c38c7fa01",
+            "Title": "Turkish Egg",
+            "Description": "Finest Omlette with Greek Yogurt",
+            "Price": 60,
+            "ImageURL": "https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png",
+            "FoodTags": "Non-veg",
+            "Category": "Breakfast Food",
+            "Code": "12",
+            "isAvaliable": true,
+            "resturant": "679aa21c7b7abfac403d4c9f",
+            "Rating": 5,
+            "Rating_Count": "3",
+            "createdAt": "2025-01-30T17:07:32.623Z",
+            "updatedAt": "2025-01-30T17:07:32.623Z",
+            "__v": 0
+        },
+        {
+            "_id": "679bb2203fc78e5c38c7fa04",
+            "Title": "Samosa",
+            "Description": "Indian Fast Food ,No need to Know it is already famous",
+            "Price": 45,
+            "ImageURL": "https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png",
+            "FoodTags": "veg",
+            "Category": "Breakfast Food",
+            "Code": "2",
+            "isAvaliable": true,
+            "resturant": "679aa21c7b7abfac403d4c9f",
+            "Rating": 5,
+            "Rating_Count": "3",
+            "createdAt": "2025-01-30T17:08:48.960Z",
+            "updatedAt": "2025-01-30T17:08:48.960Z",
+            "__v": 0
+        },
+        {
+            "_id": "679bb2853fc78e5c38c7fa06",
+            "Title": "Mozeralla Cheese Pizza",
+            "Description": "Pizaa with Mozeraalla Cheese and Bale Leaves",
+            "Price": 120,
+            "ImageURL": "https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png",
+            "FoodTags": "veg-daily",
+            "Category": "Staple Food",
+            "Code": "13",
+            "isAvaliable": true,
+            "resturant": "679aa21c7b7abfac403d4c9f",
+            "Rating": 5,
+            "Rating_Count": "12",
+            "createdAt": "2025-01-30T17:10:29.357Z",
+            "updatedAt": "2025-01-30T17:10:29.357Z",
+            "__v": 0
+        }
+    ]
+}

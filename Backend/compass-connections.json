@@ -1,0 +1,44 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "393f2a17-08d7-4073-92d4-da0e78e21757",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1759685581604"
+        }
+      },
+      "favorite": {
+        "name": "cluster0.shnr93i.mongodb.net"
+      },
+      "savedConnectionType": "recent",
+      "connectionOptions": {
+        "connectionString": "mongodb+srv://princemehra3666_db_user:1209@cluster0.shnr93i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjoxLCJzdGF0ZSI6W119"
+        }
+      }
+    },
+    {
+      "id": "5338ef47-674b-46e9-bf90-606c29fd147f",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1759700436709"
+        }
+      },
+      "favorite": {
+        "name": "cluster1.fesg0.mongodb.net"
+      },
+      "savedConnectionType": "favorite",
+      "connectionOptions": {
+        "connectionString": "mongodb+srv://Princejogi:Lebrapanthai@cluster1.fesg0.mongodb.net/Food-app",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjoxLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}
