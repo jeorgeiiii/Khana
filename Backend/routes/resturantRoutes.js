@@ -1,22 +1,43 @@
-const express = require('express')
-
+const express = require('express');
 const authMiddleware = require('../middlewares/authMiddleware');
-const { createResturantController, getAllResturantController, getResturantByIdController, deleteResturantController } = require('../controllers/resturantController');
+const adminMiddleware = require('../middlewares/adminMiddleware'); // You'll need to create this
+const { 
+    createResturantController, 
+    getAllResturantController, 
+    getResturantByIdController, 
+    deleteResturantController,
+    updateResturantController,
+    getRestaurantStatsController,
+    searchRestaurantsController,
+    getNearbyRestaurantsController
+} = require('../controllers/resturantController');
+
 const router = express.Router();
 
-//routes
-//Create Resturant || Post
-router.post('/create',authMiddleware,createResturantController);
+// Public routes (no authentication required)
+// Get all restaurants
+router.get('/getAll', getAllResturantController);
 
-//Get All Resturant ||Get
+// Get restaurant by ID
+router.get('/get/:id', getResturantByIdController);
 
-router.get('/getAll',getAllResturantController);
+// Search restaurants
+router.get('/search', searchRestaurantsController);
 
-// Get Resturant By Id
-router.get('/get/:id',getResturantByIdController);
+// Get nearby restaurants
+router.post('/nearby', getNearbyRestaurantsController);
 
-//Delete Resturant
-router.delete('/delete/:id',authMiddleware,deleteResturantController);
+// Get restaurant statistics
+router.get('/stats/:id', getRestaurantStatsController);
 
+// Protected routes (authentication required)
+// Create restaurant (admin only)
+router.post('/create', authMiddleware, adminMiddleware, createResturantController);
 
-module.exports=router
+// Update restaurant (admin only)
+router.put('/update/:id', authMiddleware, adminMiddleware, updateResturantController);
+
+// Delete restaurant (admin only)
+router.delete('/delete/:id', authMiddleware, adminMiddleware, deleteResturantController);
+
+module.exports = router;
