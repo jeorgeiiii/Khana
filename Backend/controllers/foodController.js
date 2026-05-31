@@ -310,9 +310,30 @@ const orderStatusController = async (req, res) => {
   }
 };
 
+// Get restaurant menu (alias for getFoodByResturantController)
+const getRestaurantMenuController = async (req, res) => {
+    try {
+        const restaurantId = req.params.id || req.params.restaurantId;
+        
+        const foods = await foodModel.find({ restaurantId: restaurantId });
+        
+        res.status(200).send({
+            success: true,
+            foods: foods
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Error fetching restaurant menu',
+            error
+        });
+    }
+};
 
-
-module.exports={createFoodController,
+// Make sure to export it
+module.exports = {
+    createFoodController,
     getAllFoodController,
     getSinglefoodController,
     getFoodByResturantController,
@@ -320,6 +341,5 @@ module.exports={createFoodController,
     deleteFoodController,
     placeOrderController,
     orderStatusController,
-
-
+    getRestaurantMenuController  // ADD THIS
 };

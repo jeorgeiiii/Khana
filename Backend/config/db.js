@@ -1,17 +1,27 @@
-const { default: mongoose } = require('mongoose')
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-
-//function  for mongoose database connection
-
- const connect_db=async()=>{
+const connectDB = async () => {
     try {
-      
-        await mongoose.connect(process.env.Mongo_URL)
-        console.log(`Connected To Database ${mongoose.connection.host}`)
-        
-    } catch (error) {
-        console.log('DB Error',error)
-    }
-}
+        if (!process.env.MONGO_URI) {
+            console.error('❌ MONGO_URI is not defined in .env file');
+            console.log('Please add MONGO_URI to your .env file');
+            process.exit(1);
+        }
 
-module.exports=connect_db;
+        console.log('🔄 Connecting to MongoDB...');
+        const conn = await mongoose.connect(process.env.MONGO_URI, {
+            dbName: process.env.DB_NAME || 'zomoro_db',
+        });
+        
+        console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+        console.log(`✅ Database: ${conn.connection.name}`);
+        
+        return conn;
+    } catch (error) {
+        console.error('❌ MongoDB Connection Error:', error.message);
+        process.exit(1);
+    }
+};
+
+module.exports = connectDB;

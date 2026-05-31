@@ -1,8 +1,18 @@
-const User = require('../models/User'); // Adjust path as needed
+const UserModel = require('../models/User'); // Fixed path
 
 const adminMiddleware = async (req, res, next) => {
     try {
-        const user = await User.findById(req.user.id);
+        // Get user ID from auth middleware
+        const userId = req.user?.id || req.body?.id;
+        
+        if (!userId) {
+            return res.status(401).send({
+                success: false,
+                message: 'User not authenticated'
+            });
+        }
+
+        const user = await UserModel.findById(userId);
         
         if (!user) {
             return res.status(401).send({
@@ -11,8 +21,8 @@ const adminMiddleware = async (req, res, next) => {
             });
         }
 
-        // Check if user is admin (you can modify this based on your user schema)
-        if (user.role !== 'admin' && user.role !== 'superadmin') {
+        // Check if user is admin (based on usertype field)
+        if (user.usertype !== 'Admin' && user.usertype !== 'SuperAdmin') {
             return res.status(403).send({
                 success: false,
                 message: 'Access denied. Admin only.'
@@ -25,7 +35,7 @@ const adminMiddleware = async (req, res, next) => {
         res.status(500).send({
             success: false,
             message: 'Error in admin middleware',
-            error
+            error: error.message
         });
     }
 };

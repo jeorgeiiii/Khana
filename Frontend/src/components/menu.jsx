@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './menu.css';
+import '../App.css';
 
-const Menu = () => {
+const Menu = ({ restaurant, onBack }) => {
   const [activeTab, setActiveTab] = useState('food');
 
   const menuData = {
@@ -58,6 +58,8 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
+      <button className="back-btn" onClick={onBack}>← Back</button>
+      <h2>{restaurant?.Title || restaurant?.name} Menu</h2>
       <nav className="menu-nav">
         <a href="#overview">Overview</a>
         <a href="#order">Order Online</a>

@@ -1,72 +1,102 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const UserModel = require("../Models/User");
-
+const UserModel = require("../models/User"); // FIXED: Capital U
 
 const signup = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, phone } = req.body;
         const user = await UserModel.findOne({ email });
         if (user) {
-            return res.status(409)
-                .json({ message: 'User is already exist, you can login', success: false });
+            return res.status(409).json({ 
+                message: 'User already exists, you can login', 
+                success: false 
+            });
         }
-        const userModel = new UserModel({ name, email, password });
-        userModel.password = await bcrypt.hash(password, 10);
+        
+        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        const userModel = new UserModel({ 
+            name, 
+            email, 
+            password: hashedPassword,
+            phone: phone || "0000000000",
+            isEmailLogin: true
+        });
+        
         await userModel.save();
-        res.status(201)
-            .json({
-                message: "Signup successfully",
-                success: true
-            })
+        
+        res.status(201).json({
+            message: "Signup successfully",
+            success: true,
+            user: {
+                id: userModel._id,
+                name: userModel.name,
+                email: userModel.email
+            }
+        });
     } catch (err) {
-        res.status(500)
-            .json({
-                message: "Internal server errror",
-                success: false
-            })
+        console.error('Signup error:', err);
+        res.status(500).json({
+            message: "Internal server error",
+            success: false,
+            error: err.message
+        });
     }
-}
-
+};
 
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await UserModel.findOne({ email });
-        const errorMsg = 'Auth failed email or password is wrong';
+        
         if (!user) {
-            return res.status(403)
-                .json({ message: errorMsg, success: false });
+            return res.status(401).json({ 
+                message: 'Invalid email or password', 
+                success: false 
+            });
         }
+        
         const isPassEqual = await bcrypt.compare(password, user.password);
         if (!isPassEqual) {
-            return res.status(403)
-                .json({ message: errorMsg, success: false });
+            return res.status(401).json({ 
+                message: 'Invalid email or password', 
+                success: false 
+            });
         }
-        const jwtToken = jwt.sign(
-            { email: user.email, _id: user._id },
+        
+        // FIXED: Send 'id' instead of '_id' in token
+        const token = jwt.sign(
+            { id: user._id, email: user.email, usertype: user.usertype },
             process.env.JWT_SECRET,
             { expiresIn: '24h' }
-        )
+        );
 
-        res.status(200)
-            .json({
-                message: "Login Success",
-                success: true,
-                jwtToken,
-                email,
-                name: user.name
-            })
+        res.status(200).json({
+            message: "Login Success",
+            success: true,
+             token: token,
+            jwtToken: token,
+            
+            email: user.email,
+            name: user.name,
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                phone: user.phone
+            }
+        });
     } catch (err) {
-        res.status(500)
-            .json({
-                message: "Internal server errror",
-                success: false
-            })
+        console.error('Login error:', err);
+        res.status(500).json({
+            message: "Internal server error",
+            success: false,
+            error: err.message
+        });
     }
-}
+};
 
 module.exports = {
     signup,
     login
-}
+};

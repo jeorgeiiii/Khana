@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Book.css';
+import '../App.css';
 
 function Book({ restaurant, onBack }) {
   const [bookingStep, setBookingStep] = useState('select-slot'); // 'select-slot', 'choose-offer', 'review-details', 'booking-cancelled'

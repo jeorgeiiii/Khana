@@ -1,5 +1,5 @@
 import React from 'react';
-import './Reviews.css';
+import '../App.css';
 
 function Reviews({ restaurant, onBack }) {
   // Sample reviews data

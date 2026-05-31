@@ -9,7 +9,8 @@ const {
     updateResturantController,
     getRestaurantStatsController,
     searchRestaurantsController,
-    getNearbyRestaurantsController
+    getNearbyRestaurantsController,
+    getRestaurantsByLocationController
 } = require('../controllers/resturantController');
 
 const router = express.Router();
@@ -17,6 +18,9 @@ const router = express.Router();
 // Public routes (no authentication required)
 // Get all restaurants
 router.get('/getAll', getAllResturantController);
+
+// NEW - Get restaurants by location
+router.get('/location/:location', getRestaurantsByLocationController);
 
 // Get restaurant by ID
 router.get('/get/:id', getResturantByIdController);
@@ -39,5 +43,7 @@ router.put('/update/:id', authMiddleware, adminMiddleware, updateResturantContro
 
 // Delete restaurant (admin only)
 router.delete('/delete/:id', authMiddleware, adminMiddleware, deleteResturantController);
+
+
 
 module.exports = router;

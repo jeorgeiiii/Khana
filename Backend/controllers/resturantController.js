@@ -1,8 +1,9 @@
 //Create Resturant
 const resturantModel = require("../models/resturantModel");
 const foodModel = require("../models/foodModel");
-const reviewModel = require("../models/reviewModel"); // You'll need to create this
-const offerModel = require("../models/offerModel"); // You'll need to create this
+// Comment out models that don't exist yet
+
+
 
 const createResturantController = async(req ,res) => {
     try {
@@ -68,7 +69,6 @@ const createResturantController = async(req ,res) => {
         });
     }
 }
-
 
 //Get All Restaurants
 const getAllResturantController = async(req,res) =>{
@@ -140,7 +140,7 @@ const getRestaurantMenuController = async(req, res) => {
         
         res.status(200).send({
             success: true,
-            menu: menu
+            foods: menu  // Change 'menu' to 'foods' to match frontend expectation
         });
     } catch (error) {
         console.log(error);
@@ -151,7 +151,109 @@ const getRestaurantMenuController = async(req, res) => {
         });
     }
 };
-// Search restaurants
+
+//Get Restaurant Categories
+const getRestaurantCategoriesController = async(req, res) => {
+    try {
+        const restaurantId = req.params.id;
+        
+        // Get unique categories from food items
+        const categories = await foodModel.distinct('category', { restaurantId: restaurantId });
+        
+        res.status(200).send({
+            success: true,
+            categories: categories.map(cat => ({ name: cat }))
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Error fetching restaurant categories',
+            error
+        });
+    }
+};
+
+//Get Restaurant Photos
+const getRestaurantPhotosController = async(req, res) => {
+    try {
+        const restaurantId = req.params.id;
+        
+        const restaurant = await resturantModel.findById(restaurantId);
+        
+        // Combine restaurant image and food images
+        let photos = [];
+        
+        if (restaurant && restaurant.ImageURL) {
+            photos.push({ url: restaurant.ImageURL, type: 'restaurant' });
+        }
+        
+        if (restaurant && restaurant.Logourl) {
+            photos.push({ url: restaurant.Logourl, type: 'logo' });
+        }
+        
+        // Get food images
+        const foodItems = await foodModel.find({ restaurantId: restaurantId }).select('ImageURL Title');
+        foodItems.forEach(item => {
+            if (item.ImageURL) {
+                photos.push({ 
+                    url: item.ImageURL, 
+                    type: 'food',
+                    title: item.Title 
+                });
+            }
+        });
+        
+        res.status(200).send({
+            success: true,
+            photos: photos
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Error fetching restaurant photos',
+            error
+        });
+    }
+};
+// Get restaurants by location
+const getRestaurantsByLocationController = async (req, res) => {
+    try {
+        const { location } = req.params;
+        
+        // Case-insensitive search
+        const restaurants = await resturantModel.find({
+            $or: [
+                { location: { $regex: new RegExp(location, 'i') } },
+                { 'Coords.address': { $regex: new RegExp(location, 'i') } }
+            ]
+        });
+        
+        if (!restaurants || restaurants.length === 0) {
+            return res.status(404).send({
+                success: false,
+                message: `No restaurants found in ${location}`,
+                restaurants: []
+            });
+        }
+        
+        res.status(200).send({
+            success: true,
+            total: restaurants.length,
+            location: location,
+            restaurants
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Error in getting restaurants by location',
+            error
+        });
+    }
+};
+//Search restaurants
 const searchRestaurantsController = async (req, res) => {
     try {
         const { query, cuisine, minRating, maxPrice } = req.query;
@@ -190,6 +292,7 @@ const searchRestaurantsController = async (req, res) => {
         });
     }
 };
+
 // Get nearby restaurants
 const getNearbyRestaurantsController = async (req, res) => {
     try {
@@ -232,114 +335,6 @@ const getNearbyRestaurantsController = async (req, res) => {
         res.status(500).send({
             success: false,
             message: 'Error finding nearby restaurants',
-            error
-        });
-    }
-};
-
-
-//Get Restaurant Reviews
-const getRestaurantReviewsController = async(req, res) => {
-    try {
-        const restaurantId = req.params.id;
-        
-        // You'll need a review model - this is a placeholder
-        const reviews = await reviewModel.find({ restaurantId: restaurantId })
-            .populate('user', 'name')
-            .sort({ createdAt: -1 });
-        
-        res.status(200).send({
-            success: true,
-            reviews: reviews
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({
-            success: false,
-            message: 'Error fetching restaurant reviews',
-            error
-        });
-    }
-};
-
-//Get Restaurant Offers
-const getRestaurantOffersController = async(req, res) => {
-    try {
-        const restaurantId = req.params.id;
-        
-        // You'll need an offer model - this is a placeholder
-        const offers = await offerModel.find({ 
-            restaurantId: restaurantId,
-            isActive: true 
-        });
-        
-        res.status(200).send({
-            success: true,
-            offers: offers
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({
-            success: false,
-            message: 'Error fetching restaurant offers',
-            error
-        });
-    }
-};
-
-//Get Restaurant Categories
-const getRestaurantCategoriesController = async(req, res) => {
-    try {
-        const restaurantId = req.params.id;
-        
-        // Get unique categories from food items
-        const categories = await foodModel.distinct('category', { restaurantId: restaurantId });
-        
-        res.status(200).send({
-            success: true,
-            categories: categories.map(cat => ({ name: cat }))
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({
-            success: false,
-            message: 'Error fetching restaurant categories',
-            error
-        });
-    }
-};
-
-//Get Restaurant Photos
-const getRestaurantPhotosController = async(req, res) => {
-    try {
-        const restaurantId = req.params.id;
-        
-        const restaurant = await resturantModel.findById(restaurantId);
-        
-        // Combine restaurant image and food images
-        let photos = [];
-        
-        if (restaurant.ImageURL) {
-            photos.push({ url: restaurant.ImageURL, type: 'restaurant' });
-        }
-        
-        // Get food images
-        const foodItems = await foodModel.find({ restaurantId: restaurantId }).select('ImageURL');
-        foodItems.forEach(item => {
-            if (item.ImageURL) {
-                photos.push({ url: item.ImageURL, type: 'food' });
-            }
-        });
-        
-        res.status(200).send({
-            success: true,
-            photos: photos
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({
-            success: false,
-            message: 'Error fetching restaurant photos',
             error
         });
     }
@@ -411,8 +406,6 @@ const updateResturantController = async (req, res) => {
     }
 };
 
-
-
 // Helper function to calculate distance between two coordinates
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radius of the earth in km
@@ -445,13 +438,13 @@ const getRestaurantStatsController = async (req, res) => {
             });
         }
 
-        // Get food count (if you have food model)
-        const foodCount = restaurant.Foods?.length || 0;
+        // Get food count
+        const foodCount = await foodModel.countDocuments({ restaurantId: restaurantId });
 
         const stats = {
             totalFoodItems: foodCount,
-            rating: restaurant.Rating,
-            ratingCount: restaurant.RatingCount,
+            rating: restaurant.Rating || 0,
+            ratingCount: restaurant.RatingCount || 0,
             isOpen: restaurant.isOpen,
             pickup: restaurant.Pickup,
             delivery: restaurant.Delivery
@@ -471,7 +464,59 @@ const getRestaurantStatsController = async (req, res) => {
     }
 };
 
-// Don't forget to add these to your module.exports
+// Comment out these controllers for now (they need models that don't exist yet)
+/*
+//Get Restaurant Reviews
+const getRestaurantReviewsController = async(req, res) => {
+    try {
+        const restaurantId = req.params.id;
+        
+        // You'll need a review model - this is a placeholder
+        const reviews = await reviewModel.find({ restaurantId: restaurantId })
+            .populate('user', 'name')
+            .sort({ createdAt: -1 });
+        
+        res.status(200).send({
+            success: true,
+            reviews: reviews
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Error fetching restaurant reviews',
+            error
+        });
+    }
+};
+
+//Get Restaurant Offers
+const getRestaurantOffersController = async(req, res) => {
+    try {
+        const restaurantId = req.params.id;
+        
+        // You'll need an offer model - this is a placeholder
+        const offers = await offerModel.find({ 
+            restaurantId: restaurantId,
+            isActive: true 
+        });
+        
+        res.status(200).send({
+            success: true,
+            offers: offers
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Error fetching restaurant offers',
+            error
+        });
+    }
+};
+*/
+
+// Export only the controllers that are implemented
 module.exports = {
     createResturantController,
     getAllResturantController,
@@ -480,5 +525,11 @@ module.exports = {
     updateResturantController,
     searchRestaurantsController,
     getNearbyRestaurantsController,
-    getRestaurantStatsController
+    getRestaurantStatsController,
+    getRestaurantMenuController,
+    getRestaurantCategoriesController,
+    getRestaurantPhotosController,
+    getRestaurantsByLocationController,
+    // getRestaurantReviewsController,  // Commented out for now
+    // getRestaurantOffersController     // Commented out for now
 };
