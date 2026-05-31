@@ -154,57 +154,6 @@ Backend API: http://localhost:5000
 
 WebSocket: ws://localhost:5000
 
-🔑 Default Users
-User Type	Email	Password
-Client (Customer)	test@example.com	password123
-Admin	admin@example.com	password123
-📡 API Endpoints
-Authentication
-Method	Endpoint	Description
-POST	/api/v1/auth/signup	User registration
-POST	/api/v1/auth/login	User login
-GET	/api/v1/auth/profile	Get user profile
-PUT	/api/v1/auth/profile	Update profile
-OTP
-Method	Endpoint	Description
-POST	/api/v1/otp/send	Send OTP to mobile
-POST	/api/v1/otp/verify	Verify OTP
-POST	/api/v1/otp/resend	Resend OTP
-Restaurants
-Method	Endpoint	Description
-GET	/api/v1/resturant/getAll	Get all restaurants
-GET	/api/v1/resturant/location/:location	Get restaurants by city
-GET	/api/v1/resturant/get/:id	Get restaurant details
-POST	/api/v1/resturant/create	Create restaurant (admin)
-Food Items
-Method	Endpoint	Description
-GET	/api/v1/food/restaurant/:id	Get restaurant menu
-POST	/api/v1/food/create	Add food item (admin)
-Cart & Orders
-Method	Endpoint	Description
-GET	/api/v1/cart	Get user cart
-POST	/api/v1/cart/add	Add item to cart
-POST	/api/v1/payment/cod-order	Place COD order
-POST	/api/v1/payment/create-order	Create Razorpay order
-WebSocket Events
-Event	Direction	Description
-driver-join	Client → Server	Driver joins order room
-track-order	Client → Server	Customer tracks order
-driver-location-update	Client → Server	Driver sends location
-location-update	Server → Client	Broadcast location to customer
-order-status-update	Server → Client	Order status change
-🧪 Testing
-Test Card Details (Razorpay)
-text
-Card Number: 4111 1111 1111 1111
-Expiry: Any future date (12/25)
-CVV: Any 3 digits
-OTP: Any 3 digits
-Test UPI ID
-text
-success@razorpay
-Test OTP (Development Mode)
-When DEV_MODE=true, OTP is logged in backend console.
 
 📊 Performance Optimizations
 Optimization	Technique	Impact
