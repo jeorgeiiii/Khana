@@ -48,32 +48,6 @@ Smooth animations and loading states
 
 Works on all screen sizes
 
-🏗️ Architecture
-text
-┌─────────────────────────────────────────────────────────────────┐
-│                         CLIENT (React)                          │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐ │
-│  │   Header    │  │    Card     │  │   RestaurantDetail      │ │
-│  │   Cart      │  │  Checkout   │  │   OrderTracking         │ │
-│  └─────────────┘  └─────────────┘  └─────────────────────────┘ │
-│                              │                                   │
-│                    HTTP/WebSocket                               │
-│                              ▼                                   │
-├─────────────────────────────────────────────────────────────────┤
-│                      BACKEND (Node.js/Express)                  │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐ │
-│  │   Auth API  │  │  REST API   │  │   Socket.io Server      │ │
-│  │   JWT/OTP   │  │ Restaurants │  │   Real-time Tracking    │ │
-│  └─────────────┘  └─────────────┘  └─────────────────────────┘ │
-│                              │                                   │
-│                              ▼                                   │
-├─────────────────────────────────────────────────────────────────┤
-│                        DATABASES & SERVICES                     │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐ │
-│  │   MongoDB   │  │  Cloudinary │  │   Razorpay API          │ │
-│  │   Atlas     │  │   Images    │  │   Payments              │ │
-│  └─────────────┘  └─────────────┘  └─────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────┘
 🛠️ Tech Stack
 Frontend
 Technology	Purpose
