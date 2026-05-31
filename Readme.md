@@ -48,6 +48,7 @@ Smooth animations and loading states
 
 Works on all screen sizes
 
+
 🛠️ Tech Stack
 Frontend
 Technology	Purpose
@@ -76,72 +77,7 @@ API	Purpose
 Razorpay	Online payments (test mode)
 Twilio	SMS OTP verification
 OpenStreetMap	Free map tiles
-📁 Project Structure
-text
-Zomoro/
-├── Backend/
-│   ├── config/
-│   │   ├── db.js
-│   │   └── cloudinary.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── resturantController.js
-│   │   ├── foodController.js
-│   │   ├── paymentController.js
-│   │   └── userController.js
-│   ├── middlewares/
-│   │   ├── authMiddleware.js
-│   │   └── adminMiddleware.js
-│   ├── models/
-│   │   ├── User.js
-│   │   ├── resturantModel.js
-│   │   ├── foodModel.js
-│   │   ├── Order.js
-│   │   └── Otp.js
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── resturantRoutes.js
-│   │   ├── foodRoutes.js
-│   │   ├── paymentRoutes.js
-│   │   ├── userroute.js
-│   │   └── otpRoutes.js
-│   ├── socket.js
-│   ├── index.js
-│   └── .env
-│
-├── Frontend/
-│   ├── public/
-│   │   ├── index.html
-│   │   └── default-avatar.png
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Header.jsx
-│   │   │   ├── Ex.jsx (Restaurant Card)
-│   │   │   ├── RestaurantDetails.jsx
-│   │   │   ├── Checkout.jsx
-│   │   │   ├── OrderOnline.jsx
-│   │   │   ├── Nightlife.jsx
-│   │   │   ├── DeliveryBoy/
-│   │   │   │   └── DeliveryDashboard.jsx
-│   │   │   └── Map/
-│   │   │       └── DeliveryTracker.jsx
-│   │   ├── pages/
-│   │   │   ├── Login.jsx
-│   │   │   ├── Signup.jsx
-│   │   │   ├── Profile.jsx
-│   │   │   ├── CartPage.jsx
-│   │   │   ├── OrderConfirmation.jsx
-│   │   │   └── CustomerTrackOrder.jsx
-│   │   ├── services/
-│   │   │   ├── api.js
-│   │   │   ├── restaurantApi.js
-│   │   │   └── socketService.js
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   └── index.js
-│   └── package.json
-│
-└── README.md
+
 🚀 Getting Started
 Prerequisites
 Node.js (v18 or higher)
