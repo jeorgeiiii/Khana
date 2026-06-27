@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write          # lets the job push images to GHCR
+      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -31,11 +31,11 @@ jobs:
         with:
           context: ./Backend
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/${{ github.repository }}-backend:latest
+          tags: ghcr.io/jeorgeiiii/khana-backend:latest
 
       - name: Build and push frontend
         uses: docker/build-push-action@v7
         with:
           context: ./Frontend
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/${{ github.repository }}-frontend:latest
+          tags: ghcr.io/jeorgeiiii/khana-frontend:latest
