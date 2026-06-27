@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { handleError, handleSuccess } from '../../utils';
+import { authFetch, handleError, handleSuccess } from '../../utils';
 import './PaymentModal.css';
 
 const PaymentModal = ({ orderDetails, onClose, onSuccess }) => {
@@ -45,20 +45,8 @@ const PaymentModal = ({ orderDetails, onClose, onSuccess }) => {
                 return;
             }
 
-            const token = localStorage.getItem('token');
-            
-            if (!token) {
-                handleError('Please login to continue');
-                setLoading(false);
-                return;
-            }
-
-            const response = await fetch('http://localhost:5000/api/v1/payment/create-order', {
+            const response = await authFetch('http://localhost:5000/api/v1/payment/create-order', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
                 body: JSON.stringify({
                     amount: orderDetails.totalAmount,
                     receipt: `order_${Date.now()}`
@@ -81,12 +69,8 @@ const PaymentModal = ({ orderDetails, onClose, onSuccess }) => {
                 description: `Order for ${orderDetails.restaurantName}`,
                 order_id: data.orderId,
                 handler: async (razorpayResponse) => {
-                    const verifyResponse = await fetch('http://localhost:5000/api/v1/payment/verify-payment', {
+                    const verifyResponse = await authFetch('http://localhost:5000/api/v1/payment/verify-payment', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
-                        },
                         body: JSON.stringify({
                             razorpay_order_id: razorpayResponse.razorpay_order_id,
                             razorpay_payment_id: razorpayResponse.razorpay_payment_id,
@@ -138,20 +122,8 @@ const PaymentModal = ({ orderDetails, onClose, onSuccess }) => {
         
         setLoading(true);
         try {
-            const token = localStorage.getItem('token');
-            
-            if (!token) {
-                handleError('Please login to place order');
-                setLoading(false);
-                return;
-            }
-
-            const response = await fetch('http://localhost:5000/api/v1/payment/cod-order', {
+            const response = await authFetch('http://localhost:5000/api/v1/payment/cod-order', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
                 body: JSON.stringify(orderDetails)
             });
 

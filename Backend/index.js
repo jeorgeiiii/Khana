@@ -32,6 +32,7 @@ app.use(morgan('dev'));
 // Make io available in routes
 app.set('io', io);
 
+
 // Routes
 app.use('/api/v1/test', require('./routes/Testroute'));
 app.use('/api/v1/auth', require('./routes/authRoutes'));
@@ -47,6 +48,7 @@ app.use('/api/v1/orders', require('./routes/orderRoutes'));
 app.use('/api/v1/review', require('./routes/reviewRoutes'));
 app.use('/api/v1/cart', require('./routes/cartRoutes'));
 app.use('/api/v1/payment', require('./routes/paymentRoutes'));
+app.use('/api/v1/s3',require('./routes/s3Routes'));
 
 // Home route
 app.get('/', (req, res) => {

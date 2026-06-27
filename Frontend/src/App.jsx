@@ -341,7 +341,7 @@ function App() {
               <Checkout
                 cartItems={cartItems}
                 restaurant={selectedRestaurantForCart}
-                onClose={() => navigate('/home')}
+                onClose={() => window.location.assign('/home')}
                 clearCart={clearCart}
               />
             } />
@@ -363,18 +363,20 @@ function App() {
             isAuthenticated ? <Navigate to="/home" /> : <Navigate to="/login" />
           } />
         </Routes>
-        
-        {/* Checkout Modal */}
-        {showCheckout && (
-          <Checkout
-            cartItems={cartItems}
-            restaurant={selectedRestaurantForCart}
-            onClose={() => setShowCheckout(false)}
-            clearCart={clearCart}
-          />
-        )}
       </div>
     </BrowserRouter>
+  );
+}
+
+function CheckoutPage({ cartItems, restaurant, clearCart }) {
+  const navigate = useNavigate();
+  return (
+    <Checkout
+      cartItems={cartItems}
+      restaurant={restaurant}
+      onClose={() => navigate('/home')}
+      clearCart={clearCart}
+    />
   );
 }
 

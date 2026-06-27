@@ -22,7 +22,7 @@ const adminMiddleware = async (req, res, next) => {
         }
 
         // Check if user is admin (based on usertype field)
-        if (user.usertype !== 'Admin' && user.usertype !== 'SuperAdmin') {
+        if (user.usertype !== 'Admin') {
             return res.status(403).send({
                 success: false,
                 message: 'Access denied. Admin only.'

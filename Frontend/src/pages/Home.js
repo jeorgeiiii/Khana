@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { handleError, handleSuccess } from '../utils';
+import { authFetch, handleError, handleSuccess } from '../utils';
 import { ToastContainer } from 'react-toastify';
 
 function Home() {
@@ -24,15 +24,7 @@ function Home() {
     const fetchOrders = async () => {
         try {
             // ONLY CHANGE THIS LINE - add /api/v1/
-            const url = "http://localhost:5000/api/v1/order";
-            const headers = {
-                method: 'GET',
-                headers: {
-                    'Authorization': localStorage.getItem('token'),
-                    'Content-Type': 'application/json'
-                }
-            }
-            const response = await fetch(url, headers);
+            const response = await authFetch('http://localhost:5000/api/v1/order');
             const result = await response.json();
             console.log('Orders result:', result);
             
