@@ -67,9 +67,20 @@ const Checkout = ({ cartItems, restaurant, onClose, clearCart }) => {
             const data = await response.json();
             
             if (data.success) {
-                setAddresses(data.addresses || []);
-                const defaultAddr = data.addresses?.find(addr => addr.isDefault);
-                if (defaultAddr) setSelectedAddress(defaultAddr);
+                const addressList = data.addresses || [];
+                setAddresses(addressList);
+
+                if (addressList.length > 0) {
+                    const currentSelectedStillExists = addressList.some(addr => addr._id === selectedAddress?._id);
+                    const defaultAddr = addressList.find(addr => addr.isDefault);
+                    const fallbackAddr = defaultAddr || addressList[0];
+
+                    if (!currentSelectedStillExists) {
+                        setSelectedAddress(fallbackAddr);
+                    }
+                } else {
+                    setSelectedAddress(null);
+                }
             }
         } catch (error) {
             console.error('Error fetching addresses:', error);
@@ -117,7 +128,8 @@ const Checkout = ({ cartItems, restaurant, onClose, clearCart }) => {
             if (data.success) {
                 handleSuccess('Address added successfully');
                 setShowNewAddressForm(false);
-                fetchUserAddresses();
+                setSelectedAddress(data.address);
+                setAddresses(data.addresses || []);
                 setNewAddress({
                     street: '',
                     city: '',

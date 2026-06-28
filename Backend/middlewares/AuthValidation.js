@@ -4,9 +4,16 @@ const signupValidation = (req, res, next) => {
     const schema = Joi.object({
         name: Joi.string().min(3).max(100).required(),
         email: Joi.string().email().required(),
-        password: Joi.string().min(4).max(100).required()
+        password: Joi.string().min(4).max(100).required(),
+
+        // phone is optional — allow empty string or a 10-15 digit number
+        phone: Joi.string().allow('', null).optional(),
+
+        // usertype is optional — but ONLY Client or Driver may be chosen at signup.
+        // Joi rejects 'Admin'/'Vendor' here, before it ever reaches the controller.
+        usertype: Joi.string().valid('Client', 'Driver').optional()
     });
-    
+
     const { error } = schema.validate(req.body);
     if (error) {
         return res.status(400)
@@ -20,7 +27,7 @@ const loginValidation = (req, res, next) => {
         email: Joi.string().email().required(),
         password: Joi.string().min(4).max(100).required()
     });
-    
+
     const { error } = schema.validate(req.body);
     if (error) {
         return res.status(400)

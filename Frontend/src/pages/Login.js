@@ -32,6 +32,23 @@ function Login() {
         localStorage.setItem('user', JSON.stringify(user || {}));
     };
 
+    // ---- NEW: send each role to its own landing screen ----
+    const redirectByRole = (user) => {
+        switch (user?.usertype) {
+            case 'Admin':
+                navigate('/admin/add-restaurant');
+                break;
+            case 'Driver':
+                navigate('/delivery-dashboard/PENDING');
+                break;
+            case 'Vendor':
+                navigate('/home'); // build a vendor page later if you want
+                break;
+            default: // Client
+                navigate('/home');
+        }
+    };
+
     useEffect(() => {
         let interval;
         if (otpInfo.timer > 0) {
@@ -66,12 +83,12 @@ function Login() {
             const { success, message, jwtToken, token, user, name, error } = result;
 
             if (success) {
-                // Accept either jwtToken or token from backend — defensive
                 const authToken = jwtToken || token;
                 const userObj = user || { name, email };
                 saveSession(authToken, userObj);
                 handleSuccess(message);
-                setTimeout(() => navigate('/home'), 1000);
+                // ---- CHANGED: route by role instead of always /home ----
+                setTimeout(() => redirectByRole(userObj), 1000);
             } else if (error) {
                 handleError(error?.details?.[0]?.message || message);
             } else {
@@ -156,11 +173,11 @@ function Login() {
                     setOtpInfo(prev => ({ ...prev, step: 'name' }));
                     return;
                 }
-                // Accept either token or jwtToken from backend
                 const authToken = data.token || data.jwtToken;
                 saveSession(authToken, data.user);
                 handleSuccess(data.message);
-                setTimeout(() => navigate('/home'), 1500);
+                // ---- CHANGED: route by role instead of always /home ----
+                setTimeout(() => redirectByRole(data.user), 1500);
             } else {
                 handleError(data.message);
             }

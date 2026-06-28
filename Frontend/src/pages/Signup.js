@@ -10,7 +10,8 @@ function Signup() {
         name: '',
         email: '',
         password: '',
-        phone: ''
+        phone: '',
+        usertype: 'Client'   // ← NEW: default account type
     });
     const [otpInfo, setOtpInfo] = useState({
         mobile: '',
@@ -40,21 +41,21 @@ function Signup() {
 
     const handleEmailSignup = async (e) => {
         e.preventDefault();
-        const { name, email, password, phone } = signupInfo;
+        const { name, email, password, phone, usertype } = signupInfo;
         if (!name || !email || !password) {
             return handleError('Name, email and password are required');
         }
         setLoading(true);
         try {
             const url = 'http://localhost:5000/api/v1/auth/signup';
-            // Send phone with default value if empty
             const requestBody = {
                 name,
                 email,
                 password,
-                phone: phone && phone.trim() ? phone : "0000000000"
+                phone: phone && phone.trim() ? phone : "0000000000",
+                usertype   // ← NEW: send the chosen account type
             };
-            
+
             const response = await fetch(url, {
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
@@ -62,7 +63,7 @@ function Signup() {
             });
             const result = await response.json();
             const { success, message, error } = result;
-            
+
             if (success) {
                 handleSuccess(message);
                 setTimeout(() => navigate('/login'), 1000);
@@ -140,10 +141,10 @@ function Signup() {
             const response = await fetch('http://localhost:5000/api/v1/otp/verify', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    mobile: otpInfo.mobile, 
+                body: JSON.stringify({
+                    mobile: otpInfo.mobile,
                     otp: otpValue,
-                    name: otpInfo.name 
+                    name: otpInfo.name
                 })
             });
             const data = await response.json();
@@ -166,7 +167,7 @@ function Signup() {
 
     const handleResendOTP = async () => {
         if (otpInfo.timer > 0) return;
-        
+
         setLoading(true);
         try {
             const response = await fetch('http://localhost:5000/api/v1/otp/resend', {
@@ -177,8 +178,8 @@ function Signup() {
             const data = await response.json();
 
             if (data.success) {
-                setOtpInfo(prev => ({ 
-                    ...prev, 
+                setOtpInfo(prev => ({
+                    ...prev,
                     timer: 60,
                     otp: ['', '', '', '', '', '']
                 }));
@@ -204,8 +205,8 @@ function Signup() {
                             type="tel"
                             placeholder="9876543210"
                             value={otpInfo.mobile}
-                            onChange={(e) => setOtpInfo(prev => ({ 
-                                ...prev, 
+                            onChange={(e) => setOtpInfo(prev => ({
+                                ...prev,
                                 mobile: e.target.value.replace(/\D/g, '').slice(0, 10)
                             }))}
                             maxLength="10"
@@ -273,12 +274,12 @@ function Signup() {
                     <img src="/zomato-logo.png" alt="Zomoro" className="logo-img" />
                     <span className="logo-text">zomoro</span>
                 </div>
-                
+
                 <h2 className="auth-title">Join Zomoro</h2>
                 <p className="auth-subtitle">Create an account to start ordering</p>
-                
+
                 <div className="auth-tabs">
-                    <button 
+                    <button
                         className={`tab-btn ${signupType === 'email' ? 'active' : ''}`}
                         onClick={() => {
                             setSignupType('email');
@@ -287,11 +288,11 @@ function Signup() {
                     >
                         📧 Email
                     </button>
-                    <button 
+                    <button
                         className={`tab-btn ${signupType === 'otp' ? 'active' : ''}`}
                         onClick={() => {
                             setSignupType('otp');
-                            setSignupInfo({ name: '', email: '', password: '', phone: '' });
+                            setSignupInfo({ name: '', email: '', password: '', phone: '', usertype: 'Client' });
                         }}
                     >
                         📱 Mobile OTP
@@ -300,6 +301,30 @@ function Signup() {
 
                 {signupType === 'email' ? (
                     <form onSubmit={handleEmailSignup}>
+                        {/* ---- NEW: Account type selector ---- */}
+                        <div className="input-group">
+                            <label>I am signing up as</label>
+                            <select
+                                name="usertype"
+                                value={signupInfo.usertype}
+                                onChange={handleEmailChange}
+                                className="auth-select"
+                                style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ddd',
+                                    fontSize: '14px',
+                                    background: '#fff'
+                                }}
+                            >
+                                <option value="Client">🍽️ Customer — order food</option>
+                                <option value="Driver">🛵 Delivery Boy — deliver orders</option>
+                                {/* Admin is intentionally NOT here. Admins are created via
+                                    the makeAdmin.js script for security. */}
+                            </select>
+                        </div>
+
                         <div className="input-group">
                             <label>Full Name</label>
                             <input
@@ -347,7 +372,7 @@ function Signup() {
                 ) : (
                     renderOtpForm()
                 )}
-                
+
                 <div className="auth-footer">
                     <p>Already have an account? <Link to="/login" className="auth-link">Log in</Link></p>
                 </div>

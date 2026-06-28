@@ -17,6 +17,7 @@ import CartPage from './pages/CartPage';
 import DeliveryDashboard from './components/DeliveryBoy/DeliveryDashboard';
 import CustomerTrackOrder from './pages/CustomerTrackOrder';
 import OrderConfirmation from './pages/OrderConfirmation';
+import InfoPage from './pages/InfoPage';
 // Login imports
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -24,12 +25,12 @@ import RefrshHandler from "./RefrshHandler";
 import "./App.css";
 
 // Home component
-function HomeContent({ 
-  selectedRestaurant, 
-  setSelectedRestaurant, 
-  currentView, 
+function HomeContent({
+  selectedRestaurant,
+  setSelectedRestaurant,
+  currentView,
   setCurrentView,
-  selectedLocation,      
+  selectedLocation,
   setSelectedLocation,
   cartItems,
   setCartItems,
@@ -38,6 +39,7 @@ function HomeContent({
   setSelectedRestaurantForCart
 }) {
   const navigate = useNavigate();
+  const [filters, setFilters] = useState({ pureVeg: false, cuisine: 'All' });
 
   const handleRestaurantClick = (restaurant) => {
     console.log('Selected restaurant:', restaurant);
@@ -52,20 +54,20 @@ function HomeContent({
 
   const addToCart = (item, restaurant) => {
     console.log('Added to cart:', item);
-    
+
     // Save to localStorage
     const existingCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
     const existingIndex = existingCart.findIndex(i => i._id === item._id);
-    
+
     if (existingIndex >= 0) {
       existingCart[existingIndex].quantity += 1;
     } else {
       existingCart.push({ ...item, quantity: 1 });
     }
-    
+
     localStorage.setItem('cartItems', JSON.stringify(existingCart));
     localStorage.setItem('selectedRestaurant', JSON.stringify(restaurant));
-    
+
     setCartItems(existingCart);
     setSelectedRestaurantForCart(restaurant);
   };
@@ -112,24 +114,24 @@ function HomeContent({
   };
 
   const renderCurrentView = () => {
-    switch(currentView) {
+    switch (currentView) {
       case 'book':
         return (
-          <Book 
-            restaurant={selectedRestaurant} 
+          <Book
+            restaurant={selectedRestaurant}
             onBack={() => setCurrentView(selectedRestaurant ? 'detail' : 'home')}
           />
         );
       case 'reviews':
         return (
-          <Reviews 
-            restaurant={selectedRestaurant} 
+          <Reviews
+            restaurant={selectedRestaurant}
             onBack={() => setCurrentView(selectedRestaurant ? 'detail' : 'home')}
           />
         );
       case 'menu':
         return (
-          <Menu 
+          <Menu
             restaurant={selectedRestaurant}
             onBack={() => setCurrentView(selectedRestaurant ? 'detail' : 'home')}
             addToCart={addToCart}
@@ -137,7 +139,7 @@ function HomeContent({
         );
       case 'orderOnline':
         return (
-          <OrderOnline 
+          <OrderOnline
             restaurant={selectedRestaurant}
             onBack={selectedRestaurant ? () => setCurrentView('detail') : handleBackToHome}
             addToCart={addToCart}
@@ -146,8 +148,8 @@ function HomeContent({
         );
       case 'detail':
         return (
-          <RestaurantDetail 
-            restaurant={selectedRestaurant} 
+          <RestaurantDetail
+            restaurant={selectedRestaurant}
             onBack={handleBackToHome}
             onReviewsClick={handleReviewsClick}
             onBookTableClick={handleBookTableClick}
@@ -162,11 +164,11 @@ function HomeContent({
             <div className="home-header">
               <h1>Nightlife in {selectedLocation}</h1>
             </div>
-            <LocationSelector 
-              onLocationChange={setSelectedLocation} 
+            <LocationSelector
+              onLocationChange={setSelectedLocation}
               currentLocation={selectedLocation}
             />
-            <Nightlife 
+            <Nightlife
               onBarClick={handleBarClick}
               location={selectedLocation}
             />
@@ -179,13 +181,14 @@ function HomeContent({
             <div className="home-header">
               <h1>Dining Out in {selectedLocation}</h1>
             </div>
-            <LocationSelector 
-              onLocationChange={setSelectedLocation} 
+            <LocationSelector
+              onLocationChange={setSelectedLocation}
               currentLocation={selectedLocation}
             />
-            <Card 
-              onRestaurantClick={handleRestaurantClick} 
+            <Card
+              onRestaurantClick={handleRestaurantClick}
               location={selectedLocation}
+              filters={filters}
             />
             <Footer />
           </>
@@ -196,29 +199,33 @@ function HomeContent({
           <>
             <div className="home-header">
               <h1>Restaurants Near You</h1>
-              <button 
-                onClick={handleAddRestaurantClick}
-                className="add-restaurant-btn"
-                style={{
-                  backgroundColor: '#ff5722',
-                  color: 'white',
-                  border: 'none',
-                  padding: '10px 20px',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                  margin: '10px 0'
-                }}
-              >
-                + Add Restaurant (Admin)
-              </button>
+              {/* Only show the admin button to Admins */}
+              {JSON.parse(localStorage.getItem('user') || '{}').usertype === 'Admin' && (
+                <button
+                  onClick={handleAddRestaurantClick}
+                  className="add-restaurant-btn"
+                  style={{
+                    backgroundColor: '#ff5722',
+                    color: 'white',
+                    border: 'none',
+                    padding: '10px 20px',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    margin: '10px 0'
+                  }}
+                >
+                  + Add Restaurant (Admin)
+                </button>
+              )}
             </div>
-            <LocationSelector 
-              onLocationChange={setSelectedLocation} 
+            <LocationSelector
+              onLocationChange={setSelectedLocation}
               currentLocation={selectedLocation}
             />
-            <Card 
-              onRestaurantClick={handleRestaurantClick} 
+            <Card
+              onRestaurantClick={handleRestaurantClick}
               location={selectedLocation}
+              filters={filters}
             />
             <Footer />
           </>
@@ -228,17 +235,32 @@ function HomeContent({
 
   return (
     <>
-      <Header 
+      <Header
         onTabChange={handleTabChange}
         currentView={currentView}
         selectedLocation={selectedLocation}
         cartItems={cartItems}
         setShowCheckout={setShowCheckout}
+        filters={filters}
+        onFilterChange={setFilters}
       />
       <main className="main-content">
         {renderCurrentView()}
       </main>
     </>
+  );
+}
+
+// Small wrapper so the checkout route can use navigate() (it lives inside the Router)
+function CheckoutPage({ cartItems, restaurant, clearCart }) {
+  const navigate = useNavigate();
+  return (
+    <Checkout
+      cartItems={cartItems}
+      restaurant={restaurant}
+      onClose={() => navigate('/home')}
+      clearCart={clearCart}
+    />
   );
 }
 
@@ -255,7 +277,7 @@ function App() {
   React.useEffect(() => {
     const token = localStorage.getItem('token');
     setIsAuthenticated(!!token);
-    
+
     // Load cart from localStorage
     const savedCart = localStorage.getItem('cartItems');
     const savedRestaurant = localStorage.getItem('selectedRestaurant');
@@ -267,24 +289,23 @@ function App() {
     }
   }, []);
 
+  // Logged-in check only
   const PrivateRoute = ({ element }) => {
     const token = localStorage.getItem('token');
     return token ? element : <Navigate to="/login" />;
   };
 
-  const AdminRoute = ({ element }) => {
-    const user = JSON.parse(localStorage.getItem('user') || '{}');
+  // Role check: only the listed usertypes may enter; others bounce to /home
+  const RoleRoute = ({ element, allow }) => {
     const token = localStorage.getItem('token');
-    const isAdmin = user.role === 'admin' || user.email === 'test@example.com';
-    
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+
     if (!token) {
       return <Navigate to="/login" />;
     }
-    
-    if (!isAdmin) {
+    if (!allow.includes(user.usertype)) {
       return <Navigate to="/home" />;
     }
-    
     return element;
   };
 
@@ -303,16 +324,24 @@ function App() {
           {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          
-          {/* Admin Route */}
+
+          {/* Public info/footer pages — one route handles all of them */}
+          <Route path="/page/:slug" element={<InfoPage />} />
+
+          {/* Admin-only */}
           <Route path="/admin/add-restaurant" element={
-            <AdminRoute element={<AddRestaurant />} />
+            <RoleRoute allow={['Admin']} element={<AddRestaurant />} />
           } />
-          
-          {/* Protected Routes */}
+
+          {/* Driver-only (Admin allowed too, handy for testing) */}
+          <Route path="/delivery-dashboard/:orderId" element={
+            <RoleRoute allow={['Driver', 'Admin']} element={<DeliveryDashboard />} />
+          } />
+
+          {/* Protected Routes (any logged-in user) */}
           <Route path="/home" element={
             <PrivateRoute element={
-              <HomeContent 
+              <HomeContent
                 selectedRestaurant={selectedRestaurant}
                 setSelectedRestaurant={setSelectedRestaurant}
                 currentView={currentView}
@@ -327,7 +356,7 @@ function App() {
               />
             } />
           } />
-          
+
           <Route path="/profile" element={
             <PrivateRoute element={<Profile />} />
           } />
@@ -338,10 +367,9 @@ function App() {
 
           <Route path="/checkout" element={
             <PrivateRoute element={
-              <Checkout
+              <CheckoutPage
                 cartItems={cartItems}
                 restaurant={selectedRestaurantForCart}
-                onClose={() => window.location.assign('/home')}
                 clearCart={clearCart}
               />
             } />
@@ -351,32 +379,16 @@ function App() {
             <PrivateRoute element={<OrderConfirmation />} />
           } />
 
-          <Route path="/delivery-dashboard/:orderId" element={
-            <PrivateRoute element={<DeliveryDashboard />} />
-          } />
-          
           <Route path="/track-order/:orderId" element={
             <PrivateRoute element={<CustomerTrackOrder />} />
           } />
-          
+
           <Route path="/" element={
             isAuthenticated ? <Navigate to="/home" /> : <Navigate to="/login" />
           } />
         </Routes>
       </div>
     </BrowserRouter>
-  );
-}
-
-function CheckoutPage({ cartItems, restaurant, clearCart }) {
-  const navigate = useNavigate();
-  return (
-    <Checkout
-      cartItems={cartItems}
-      restaurant={restaurant}
-      onClose={() => navigate('/home')}
-      clearCart={clearCart}
-    />
   );
 }
 

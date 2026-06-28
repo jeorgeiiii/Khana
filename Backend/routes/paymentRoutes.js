@@ -1,9 +1,11 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const authMiddleware = require('../middlewares/authMiddleware');
-const Order = require('../models/Order');
+require('../models/Order');
 const User = require('../models/User');
 
 const router = express.Router();
+const OrderModel = mongoose.model('Order');
 
 // Create COD Order
 router.post('/cod-order', authMiddleware, async (req, res) => {
@@ -12,7 +14,7 @@ router.post('/cod-order', authMiddleware, async (req, res) => {
         const { restaurantId, items, address, subtotal, tax, deliveryFee, totalAmount, estimatedDeliveryTime } = req.body;
         
         // Create order
-        const newOrder = new Order({
+        const newOrder = new OrderModel({
             userId,
             restaurantId,
             items,
@@ -80,7 +82,7 @@ router.post('/verify-payment', authMiddleware, async (req, res) => {
         const { razorpay_order_id, razorpay_payment_id, orderDetails } = req.body;
         
         // Create order
-        const newOrder = new Order({
+        const newOrder = new OrderModel({
             userId,
             restaurantId: orderDetails.restaurantId,
             items: orderDetails.items,

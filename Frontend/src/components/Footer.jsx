@@ -1,47 +1,60 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
+
+const footerSections = [
+  {
+    heading: 'ABOUT ZOMATO',
+    links: [
+      { label: 'Who We Are', to: '/page/about' },
+      { label: 'Blog', to: '/page/blog' },
+      { label: 'Work With Us', to: '/page/work-with-us' },
+      { label: 'Investor Relations', to: '/page/investor-relations' },
+    ],
+  },
+  {
+    heading: 'ZOMAVERSE',
+    links: [
+      { label: 'Zomato', to: '/page/zomato' },
+      { label: 'Blinkit', to: '/page/blinkit' },
+      { label: 'Feeding India', to: '/page/feeding-india' },
+      { label: 'Hyperpure', to: '/page/hyperpure' },
+    ],
+  },
+  {
+    heading: 'FOR RESTAURANTS',
+    links: [
+      { label: 'Partner With Us', to: '/page/partner-with-us' },
+      { label: 'Apps For You', to: '/page/apps-for-you' },
+    ],
+  },
+  {
+    heading: 'LEARN MORE',
+    links: [
+      { label: 'Privacy', to: '/page/privacy' },
+      { label: 'Security', to: '/page/security' },
+      { label: 'Terms', to: '/page/terms' },
+    ],
+  },
+];
 
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-main">
         <div className="footer-columns">
-          <div className="footer-column">
-            <h4>ABOUT ZOMATO</h4>
-            <ul>
-              <li>Who We Are</li>
-              <li>Blog</li>
-              <li>Work With Us</li>
-              <li>Investor Relations</li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4>ZOMAVERSE</h4>
-            <ul>
-              <li>Zomato</li>
-              <li>Blinkit</li>
-              <li>Feeding India</li>
-              <li>Hyperpure</li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4>FOR RESTAURANTS</h4>
-            <ul>
-              <li>Partner With Us</li>
-              <li>Apps For You</li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4>LEARN MORE</h4>
-            <ul>
-              <li>Privacy</li>
-              <li>Security</li>
-              <li>Terms</li>
-            </ul>
-          </div>
+          {footerSections.map((section) => (
+            <div className="footer-column" key={section.heading}>
+              <h4>{section.heading}</h4>
+              <ul>
+                {section.links.map((link) => (
+                  <li key={link.to}>
+                    <Link to={link.to}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           <div className="footer-column">
             <h4>SOCIAL LINKS</h4>

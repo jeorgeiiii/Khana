@@ -1,46 +1,31 @@
-const JWT = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
-module.exports = async (req, res, next) => {
-    try {
-        const authHeader = req.headers['authorization'];
+const authMiddleware = (req, res, next) => {
+    const authHeader = req.headers.authorization || req.headers.Authorization;
 
-        if (!authHeader) {
-            return res.status(401).json({
-                success: false,
-                message: 'Please Provide Auth Token'
-            });
-        }
-
-        const token = authHeader.startsWith('Bearer ')
-            ? authHeader.split(' ')[1]
-            : authHeader;
-
-        if (!token) {
-            return res.status(401).json({
-                success: false,
-                message: 'Invalid Token Format'
-            });
-        }
-
-        JWT.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-            if (err) {
-                console.error('JWT Verification Error:', err.message);
-                return res.status(401).json({
-                    success: false,
-                    message: err.name === 'TokenExpiredError'
-                        ? 'Token Expired. Please Login Again.'
-                        : 'Unauthorized User'
-                });
-            }
-            req.user = decoded;   // { id, email, usertype }
-            next();
-        });
-    } catch (error) {
-        console.error('Auth Middleware Error:', error);
-        res.status(500).json({
+    if (!authHeader) {
+        return res.status(401).json({
             success: false,
-            message: 'Authentication Error',
-            error: error.message
+            message: 'Unauthorized, JWT token is required'
+        });
+    }
+
+    const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : authHeader;
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = {
+            id: decoded.id,
+            email: decoded.email,
+            usertype: decoded.usertype
+        };
+        next();
+    } catch (error) {
+        return res.status(401).json({
+            success: false,
+            message: 'Unauthorized, JWT token wrong or expired'
         });
     }
 };
+
+module.exports = authMiddleware;

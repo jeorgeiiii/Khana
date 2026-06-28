@@ -515,13 +515,15 @@ const seedNightlife = async () => {
         });
         console.log('✅ Connected to MongoDB');
 
-        await Nightlife.deleteMany({});
-        console.log('✅ Cleared existing nightlife places');
+        const existingCount = await Nightlife.countDocuments();
+        if (existingCount > 0) {
+            console.log(`ℹ️ Nightlife data already exists (${existingCount} places). Skipping seed.`);
+            return;
+        }
 
         const result = await Nightlife.insertMany(nightlifePlaces);
         console.log(`✅ Added ${result.length} nightlife places`);
 
-        // Group by location
         const locationCount = {};
         result.forEach(p => {
             locationCount[p.location] = (locationCount[p.location] || 0) + 1;
@@ -542,4 +544,4 @@ const seedNightlife = async () => {
     }
 };
 
-seedNightlife();
+module.exports = { nightlifePlaces, seedNightlife };

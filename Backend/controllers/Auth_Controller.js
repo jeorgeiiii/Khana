@@ -2,12 +2,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const UserModel = require('../models/User');
 
-// ⚠️ Security: never let the public signup endpoint set usertype.
-// Otherwise anyone could sign up as Admin. Roles are assigned via
-// admin endpoints or scripts only.
+// ⚠️ SECURITY: only these roles may be chosen at public signup.
+// 'Admin' and 'Vendor' are intentionally excluded — they must be
+// assigned by an admin or via the makeAdmin.js script. If you let
+// the public pick 'Admin', anyone could take over your whole app.
+const ALLOWED_SIGNUP_ROLES = ['Client', 'Driver'];
+
 const signup = async (req, res) => {
     try {
-        const { name, email, password, phone } = req.body;
+        const { name, email, password, phone, usertype } = req.body;
 
         const existing = await UserModel.findOne({ email });
         if (existing) {
@@ -19,12 +22,15 @@ const signup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        // Whitelist check: accept Client/Driver, anything else falls back to Client.
+        const safeUsertype = ALLOWED_SIGNUP_ROLES.includes(usertype) ? usertype : 'Client';
+
         const newUser = new UserModel({
             name,
             email,
             password: hashedPassword,
             phone: phone || '0000000000',
-            usertype: 'Client'   // ← forced, ignoring anything in req.body
+            usertype: safeUsertype   // ← Client or Driver only; Admin can never come from here
         });
 
         await newUser.save();
@@ -88,7 +94,7 @@ const login = async (req, res) => {
                 name: user.name,
                 email: user.email,
                 phone: user.phone,
-                usertype: user.usertype   // ← frontend needs this to render role-based UI
+                usertype: user.usertype   // ← frontend needs this to route by role
             }
         });
     } catch (err) {

@@ -1,8 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import socketService from '../../services/socketService';
 import './DeliveryDashboard.css';
 
-const DeliveryDashboard = ({ orderId, driverId, restaurantLocation, customerLocation }) => {
+// Default Indore locations — MUST match CustomerTrackOrder defaults
+// so the marker lines up with the customer's map.
+const DEFAULT_RESTAURANT = { lat: 22.7196, lng: 75.8577 };
+const DEFAULT_CUSTOMER = { lat: 22.7256, lng: 75.8655 };
+
+const DeliveryDashboard = ({
+    orderId: propOrderId,
+    driverId: propDriverId,
+    restaurantLocation: propRestaurant,
+    customerLocation: propCustomer
+}) => {
+    // Read orderId from the URL (/delivery-dashboard/:orderId), fall back to prop/default
+    const { orderId: paramOrderId } = useParams();
+    const orderId = propOrderId || paramOrderId || 'ORDER123';
+    const driverId = propDriverId || 'DRIVER1';
+
+    // Use passed-in locations if provided, otherwise safe defaults (prevents crash)
+    const restaurantLocation = propRestaurant || DEFAULT_RESTAURANT;
+    const customerLocation = propCustomer || DEFAULT_CUSTOMER;
+
     const [isActive, setIsActive] = useState(false);
     const [currentLocation, setCurrentLocation] = useState(restaurantLocation);
     const [progress, setProgress] = useState(0);
@@ -15,15 +35,25 @@ const DeliveryDashboard = ({ orderId, driverId, restaurantLocation, customerLoca
         return () => {
             socketService.disconnect();
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         if (isActive) {
             startSimulatedMovement();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isActive]);
 
     const startSimulatedMovement = () => {
+        // Guard: never run without valid coordinates
+        if (!restaurantLocation || !customerLocation) {
+            console.error('Missing restaurant or customer location');
+            return;
+        }
+
+        setStatus('moving'); // <-- was missing; now the "On the Way" UI shows
+
         const steps = 50;
         let currentStep = 0;
         const latDiff = customerLocation.lat - restaurantLocation.lat;
@@ -33,6 +63,7 @@ const DeliveryDashboard = ({ orderId, driverId, restaurantLocation, customerLoca
             if (currentStep >= steps) {
                 clearInterval(interval);
                 setStatus('arrived');
+                setProgress(100);
                 setCurrentLocation(customerLocation);
                 socketService.updateLocation(driverId, orderId, customerLocation);
                 return;
@@ -57,9 +88,18 @@ const DeliveryDashboard = ({ orderId, driverId, restaurantLocation, customerLoca
         <div className="delivery-dashboard">
             <div className="delivery-header">
                 <h2>🛵 Delivery Dashboard</h2>
-                <button className={`activate-btn ${isActive ? 'active' : ''}`} onClick={() => setIsActive(!isActive)}>
+                <button
+                    className={`activate-btn ${isActive ? 'active' : ''}`}
+                    onClick={() => setIsActive(!isActive)}
+                    disabled={isActive}
+                >
                     {isActive ? 'Active' : 'Start Delivery'}
                 </button>
+            </div>
+
+            {/* Small helper line so the driver knows which order they're on */}
+            <div style={{ fontSize: '13px', color: '#666', margin: '4px 0 12px' }}>
+                Order: <strong>{orderId}</strong>
             </div>
 
             <div className="delivery-status">

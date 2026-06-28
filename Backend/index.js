@@ -2,14 +2,18 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv');
+const path = require('path');
 const http = require('http');
 const connectDB = require('./config/db');
 const { initSocket } = require('./socket');
+const { seedNightlife } = require('./seed/nightlife');
 // Configuration
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 // DB connection
-connectDB();
+connectDB().then(() => {
+    seedNightlife();
+});
 
 // App + HTTP server + Socket.io
 const app = express();

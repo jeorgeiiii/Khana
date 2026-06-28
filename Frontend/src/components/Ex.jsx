@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 
-function Card({ onRestaurantClick, location = "Indore" }) {
+export const filterRestaurants = (restaurants, filters = {}) => {
+    const { pureVeg = false, cuisine = 'All' } = filters;
+
+    return restaurants.filter((restaurant) => {
+        const cuisineValue = (restaurant.cuisine || '').toLowerCase();
+        const matchesCuisine = cuisine === 'All' || cuisineValue.includes(cuisine.toLowerCase());
+        const matchesVeg = !pureVeg || restaurant.veg === true || cuisineValue.includes('vegetarian') || cuisineValue.includes('veg');
+
+        return matchesCuisine && matchesVeg;
+    });
+};
+
+function Card({ onRestaurantClick, location = "Indore", filters = {} }) {
     const [restaurants, setRestaurants] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -63,12 +75,14 @@ function Card({ onRestaurantClick, location = "Indore" }) {
         );
     }
 
+    const filteredRestaurants = filterRestaurants(restaurants, filters);
+
     // No restaurants found
-    if (restaurants.length === 0) {
+    if (filteredRestaurants.length === 0) {
         return (
             <div className="food-list empty-state">
                 <h3>No restaurants found in {location}</h3>
-                <p>Try changing your location or check back later.</p>
+                <p>Try changing your location or adjust the filters.</p>
             </div>
         );
     }
@@ -76,7 +90,7 @@ function Card({ onRestaurantClick, location = "Indore" }) {
     return (
         <div className="food-list">
             <h2 className="location-heading">Restaurants in {location}</h2>
-            {restaurants.map((restaurant, idx) => (
+            {filteredRestaurants.map((restaurant, idx) => (
                 <div 
                     className="food-card" 
                     key={restaurant._id || idx}

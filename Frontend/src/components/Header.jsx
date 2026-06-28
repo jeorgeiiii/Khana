@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
-const Header = ({ onTabChange, currentView, selectedLocation }) => {
+const Header = ({ onTabChange, currentView, selectedLocation, filters, onFilterChange }) => {
   const [currentViewState, setCurrentViewState] = React.useState(currentView || "delivery");
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -147,10 +147,16 @@ const Header = ({ onTabChange, currentView, selectedLocation }) => {
       <div className="filters-row">
         {currentViewState === 'nightlife' ? (
           <>
-            <button className="filter-btn">
+            <button className="filter-btn" type="button">
               <span className="filter-icon">⚙️</span> Filters
             </button>
-            <button className="pure-veg-btn">Open Now</button>
+            <button
+              className={`pure-veg-btn ${filters?.pureVeg ? 'active' : ''}`}
+              type="button"
+              onClick={() => onFilterChange?.({ ...filters, pureVeg: !filters?.pureVeg })}
+            >
+              Open Now
+            </button>
             <div className="cuisines-dropdown">
               <span>Music Type</span>
               <span className="dropdown-arrow">▼</span>
@@ -162,14 +168,28 @@ const Header = ({ onTabChange, currentView, selectedLocation }) => {
           </>
         ) : currentViewState === 'diningOut' ? (
           <>
-            <button className="filter-btn">
+            <button className="filter-btn" type="button">
               <span className="filter-icon">⚙️</span> Filters
             </button>
-            <button className="pure-veg-btn">Pure Veg</button>
-            <div className="cuisines-dropdown">
-              <span>Cuisines</span>
-              <span className="dropdown-arrow">▼</span>
-            </div>
+            <button
+              className={`pure-veg-btn ${filters?.pureVeg ? 'active' : ''}`}
+              type="button"
+              onClick={() => onFilterChange?.({ ...filters, pureVeg: !filters?.pureVeg })}
+            >
+              Pure Veg
+            </button>
+            <select
+              className="cuisines-dropdown"
+              value={filters?.cuisine || 'All'}
+              onChange={(event) => onFilterChange?.({ ...filters, cuisine: event.target.value })}
+            >
+              <option value="All">Cuisines</option>
+              <option value="Italian">Italian</option>
+              <option value="North Indian">North Indian</option>
+              <option value="South Indian">South Indian</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Chinese">Chinese</option>
+            </select>
             <div className="cuisines-dropdown">
               <span>Rating 4.5+</span>
               <span className="dropdown-arrow">▼</span>
@@ -177,14 +197,28 @@ const Header = ({ onTabChange, currentView, selectedLocation }) => {
           </>
         ) : (
           <>
-            <button className="filter-btn">
+            <button className="filter-btn" type="button">
               <span className="filter-icon">⚙️</span> Filters
             </button>
-            <button className="pure-veg-btn">Pure Veg</button>
-            <div className="cuisines-dropdown">
-              <span>Cuisines</span>
-              <span className="dropdown-arrow">▼</span>
-            </div>
+            <button
+              className={`pure-veg-btn ${filters?.pureVeg ? 'active' : ''}`}
+              type="button"
+              onClick={() => onFilterChange?.({ ...filters, pureVeg: !filters?.pureVeg })}
+            >
+              Pure Veg
+            </button>
+            <select
+              className="cuisines-dropdown"
+              value={filters?.cuisine || 'All'}
+              onChange={(event) => onFilterChange?.({ ...filters, cuisine: event.target.value })}
+            >
+              <option value="All">Cuisines</option>
+              <option value="Italian">Italian</option>
+              <option value="North Indian">North Indian</option>
+              <option value="South Indian">South Indian</option>
+              <option value="Vegetarian">Vegetarian</option>
+              <option value="Chinese">Chinese</option>
+            </select>
           </>
         )}
       </div>
