@@ -1,79 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import restaurantApi from '../services/restaurantApi';
-
-// Keep static data as fallback
-const staticCategories = [
-  { name: "Pocket Friendly Combos", count: 7 },
-  { name: "Snacks", count: 7 },
-  { name: "Starters", count: 21 },
-  { name: "North Indian Main Course", count: 16 },
-  { name: "Chinese Main course", count: 13 },
-  { name: "Italian Pizza and Pasta", count: 4 },
-  { name: "Rice", count: 3 },
-  { name: "Breads", count: 7 },
-  { name: "Boxes", count: 1 },
-  { name: "Drinks (Beverages)", count: 20 }
-];
-
-const staticCombos = [
-  {
-    id: 1,
-    name: "Dal Makhani Rice Bowl",
-    price: 279,
-    priceText: "₹279",
-    desc: "Dal Makhani+Jeera Rice+Masala Onions",
-    veg: true
-  },
-  {
-    id: 2,
-    name: "Veg Hakka Noodles with Chilli Paneer",
-    price: 349,
-    priceText: "₹349",
-    desc: "Noodles tossed with a savory blend of soy sauce and chilli sauce, while ...",
-    veg: true
-  },
-  {
-    id: 3,
-    name: "Veg Hakka Noodles with Manchurian",
-    price: 299,
-    priceText: "₹299",
-    desc: "A classic Chinese inspired veg dish featuring stir fried noodles and crispy manchurian ...",
-    veg: true
-  },
-  {
-    id: 4,
-    name: "Veg Fried Rice with Chilli Paneer",
-    price: 349,
-    priceText: "₹349",
-    desc: "A popular veg dish that combines the savory goodness of fried rice with ...",
-    veg: true
-  },
-  {
-    id: 5,
-    name: "Veg Fried Rice with Manchurian",
-    price: 299,
-    priceText: "₹299",
-    desc: "The fried rice is typically made with vegetables like carrots, peas, corn and ...",
-    veg: true
-  },
-  {
-    id: 6,
-    name: "Aloo Tikki Burger Combo",
-    price: 249,
-    priceText: "₹249",
-    desc: "Aloo Tikki Burger+Fries+Cold Coffee",
-    veg: true
-  },
-  {
-    id: 7,
-    name: "Italian Feast Combo",
-    price: 399,
-    priceText: "₹399",
-    desc: "Pasta+Garlic Bread+Cold Drink",
-    veg: true
-  }
-];
+// All menu data lives in menuData.js — 99 items across 11 categories
+import { staticCategories, allStaticItems } from './menuData';
 
 const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
   const [menu, setMenu] = useState([]);
@@ -86,11 +15,10 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
   const [showCartToast, setShowCartToast] = useState(false);
   const [lastAddedItem, setLastAddedItem] = useState('');
 
-  // ---- NEW: filter state ----
+  // Filter state
   const [vegOnly, setVegOnly] = useState(false);
   const [maxPrice, setMaxPrice] = useState(null); // null = no price limit
 
-  // Fetch menu data when component mounts
   useEffect(() => {
     const fetchMenuData = async () => {
       if (restaurant?._id) {
@@ -101,7 +29,7 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
 
           const categoriesData = await restaurantApi.getRestaurantCategories(restaurant._id);
           if (categoriesData.categories?.length > 0) {
-            const formattedCategories = categoriesData.categories.map((cat, index) => ({
+            const formattedCategories = categoriesData.categories.map((cat) => ({
               name: cat.name,
               count: menuData.foods?.filter(item =>
                 (item.Category || item.category) === cat.name
@@ -120,8 +48,17 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
     fetchMenuData();
   }, [restaurant]);
 
-  // Get dynamic combos from menu if available
-  const getDynamicCombos = () => {
+  // Reset to the first category whenever the source list changes
+  useEffect(() => {
+    setActiveCategory(0);
+  }, [menu.length]);
+
+  // The category list actually shown in the sidebar
+  const visibleCategories = categories.length > 0 ? categories : staticCategories;
+  const activeCategoryName = visibleCategories[activeCategory]?.name;
+
+  // Build the item list: DB menu if present, otherwise all static items
+  const getAllItems = () => {
     if (menu.length > 0) {
       return menu.map((item, idx) => ({
         id: item._id || idx,
@@ -134,20 +71,20 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
         image: item.ImageURL
       }));
     }
-    return staticCombos;
+    return allStaticItems;
   };
 
-  // ---- NEW: single filter function (search + veg + price) ----
-  const applyFilters = (list) => list.filter(combo => {
+  // Chain all filters: category + search + veg + price
+  const applyFilters = (list) => list.filter(item => {
+    const matchesCategory = !activeCategoryName || item.category === activeCategoryName;
     const matchesSearch = !searchTerm ||
-      combo.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      combo.desc.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesVeg = !vegOnly || combo.veg === true;
-    const matchesPrice = !maxPrice || combo.price < maxPrice;
-    return matchesSearch && matchesVeg && matchesPrice;
+      item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (item.desc || '').toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesVeg = !vegOnly || item.veg === true;
+    const matchesPrice = !maxPrice || item.price < maxPrice;
+    return matchesCategory && matchesSearch && matchesVeg && matchesPrice;
   });
 
-  // Handle add to cart
   const handleAddToCart = (item) => {
     const cartItem = {
       _id: item.id,
@@ -158,17 +95,9 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
       veg: item.veg
     };
 
-    if (addToCart) {
-      addToCart(cartItem, restaurant);
-    }
+    if (addToCart) addToCart(cartItem, restaurant);
 
-    // Update quantity locally
-    setQuantities(prev => ({
-      ...prev,
-      [item.id]: (prev[item.id] || 0) + 1
-    }));
-
-    // Show animation
+    setQuantities(prev => ({ ...prev, [item.id]: (prev[item.id] || 0) + 1 }));
     setAddedItems(prev => ({ ...prev, [item.id]: true }));
     setLastAddedItem(item.name);
     setShowCartToast(true);
@@ -179,16 +108,11 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
     }, 1500);
   };
 
-  // Handle quantity change
   const handleQuantityChange = (itemId, newQuantity) => {
     if (newQuantity < 0) return;
-    setQuantities(prev => ({
-      ...prev,
-      [itemId]: newQuantity
-    }));
+    setQuantities(prev => ({ ...prev, [itemId]: newQuantity }));
   };
 
-  // Get quantity of an item in cart
   const getItemQuantity = (itemId) => {
     if (cartItems) {
       const cartItem = cartItems.find(item => item._id === itemId);
@@ -197,52 +121,37 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
     return quantities[itemId] || 0;
   };
 
-  // ---- CHANGED: apply ALL filters (search + veg + price) to the combo list ----
-  const visibleCombos = applyFilters(getDynamicCombos());
+  const visibleItems = applyFilters(getAllItems());
 
-  // Get total cart items count
   const totalCartItems = cartItems?.reduce((sum, item) => sum + item.quantity, 0) ||
     Object.values(quantities).reduce((sum, qty) => sum + qty, 0);
 
-  // ---- NEW: small inline styles for the filter bar ----
+  // Inline styles for the filter bar (no CSS file changes needed)
   const filterBarStyle = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '8px',
-    margin: '12px 0',
-    alignItems: 'center'
+    display: 'flex', flexWrap: 'wrap', gap: '8px',
+    margin: '12px 0', alignItems: 'center'
   };
   const chipStyle = (active) => ({
-    padding: '6px 14px',
-    borderRadius: '20px',
+    padding: '6px 14px', borderRadius: '20px',
     border: active ? '1px solid #ff5722' : '1px solid #ddd',
     background: active ? '#ff5722' : '#fff',
     color: active ? '#fff' : '#333',
-    cursor: 'pointer',
-    fontSize: '13px',
-    fontWeight: 500,
+    cursor: 'pointer', fontSize: '13px', fontWeight: 500,
     transition: 'all 0.15s ease'
   });
 
   return (
     <div className="order-online-container">
-      {/* Cart Toast Notification */}
       {showCartToast && (
-        <div className="cart-toast">
-          🛒 Added to cart: {lastAddedItem}
-        </div>
+        <div className="cart-toast">🛒 Added to cart: {lastAddedItem}</div>
       )}
 
-      {/* Cart Summary Bar */}
       {totalCartItems > 0 && (
         <div className="cart-summary-bar">
           <div className="cart-summary-content">
             <span className="cart-icon">🛒</span>
             <span className="cart-count">{totalCartItems} item(s) in cart</span>
-            <button
-              className="view-cart-btn"
-              onClick={() => window.location.href = '/checkout'}
-            >
+            <button className="view-cart-btn" onClick={() => window.location.href = '/checkout'}>
               View Cart →
             </button>
           </div>
@@ -262,7 +171,7 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
 
       <div className="order-online-main">
         <aside className="order-online-sidebar">
-          {(categories.length > 0 ? categories : staticCategories).map((cat, idx) => (
+          {visibleCategories.map((cat, idx) => (
             <div
               key={idx}
               className={`sidebar-category ${activeCategory === idx ? "active" : ""}`}
@@ -286,15 +195,19 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
             />
           </div>
 
-          {/* ---- NEW: Filter bar ---- */}
+          {/* Filter bar */}
           <div style={filterBarStyle}>
             <span style={{ fontSize: '13px', color: '#888', fontWeight: 600 }}>Filters:</span>
 
-            <button
-              style={chipStyle(vegOnly)}
-              onClick={() => setVegOnly(v => !v)}
-            >
+            <button style={chipStyle(vegOnly)} onClick={() => setVegOnly(v => !v)}>
               🟢 Veg Only
+            </button>
+
+            <button
+              style={chipStyle(maxPrice === 100)}
+              onClick={() => setMaxPrice(maxPrice === 100 ? null : 100)}
+            >
+              Under ₹100
             </button>
 
             <button
@@ -321,60 +234,47 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
             )}
 
             <span style={{ fontSize: '12px', color: '#aaa', marginLeft: 'auto' }}>
-              {visibleCombos.length} item{visibleCombos.length !== 1 ? 's' : ''}
+              {visibleItems.length} item{visibleItems.length !== 1 ? 's' : ''}
             </span>
           </div>
 
-          <h3>Pocket Friendly Combos</h3>
+          {/* Heading reflects the selected category */}
+          <h3>{activeCategoryName || 'Menu'}</h3>
+
           <div className="combo-list">
-            {visibleCombos.map((combo) => (
-              <div key={combo.id} className={`combo-item ${addedItems[combo.id] ? 'item-added' : ''}`}>
+            {visibleItems.map((item) => (
+              <div key={item.id} className={`combo-item ${addedItems[item.id] ? 'item-added' : ''}`}>
                 <div className="combo-info">
                   <div className="combo-title">
-                    <span className={`veg-dot ${combo.veg ? 'veg' : 'non-veg'}`} />
-                    {combo.name}
+                    <span className={`veg-dot ${item.veg ? 'veg' : 'non-veg'}`} />
+                    {item.name}
                   </div>
-                  <div className="combo-price">{combo.priceText}</div>
-                  <div className="combo-desc">{combo.desc}</div>
+                  <div className="combo-price">{item.priceText}</div>
+                  <div className="combo-desc">{item.desc}</div>
                   <a className="read-more" href="#">read more</a>
                 </div>
 
                 <div className="combo-actions">
-                  {getItemQuantity(combo.id) > 0 ? (
+                  {getItemQuantity(item.id) > 0 ? (
                     <div className="quantity-control">
                       <button
                         className="qty-btn"
                         onClick={() => {
-                          const newQty = getItemQuantity(combo.id) - 1;
-                          handleQuantityChange(combo.id, newQty);
-                          if (newQty === 0) {
-                            // Remove from cart if quantity becomes 0
-                            if (addToCart) {
-                              addToCart({ ...combo, _id: combo.id, quantity: -1 }, restaurant);
-                            }
-                          } else {
-                            if (addToCart) {
-                              addToCart({ ...combo, _id: combo.id, quantity: -1 }, restaurant);
-                              addToCart({ ...combo, _id: combo.id, quantity: 1 }, restaurant);
+                          const newQty = getItemQuantity(item.id) - 1;
+                          handleQuantityChange(item.id, newQty);
+                          if (addToCart) {
+                            addToCart({ ...item, _id: item.id, quantity: -1 }, restaurant);
+                            if (newQty !== 0) {
+                              addToCart({ ...item, _id: item.id, quantity: 1 }, restaurant);
                             }
                           }
                         }}
-                      >
-                        −
-                      </button>
-                      <span className="qty-value">{getItemQuantity(combo.id)}</span>
-                      <button
-                        className="qty-btn"
-                        onClick={() => handleAddToCart(combo)}
-                      >
-                        +
-                      </button>
+                      >−</button>
+                      <span className="qty-value">{getItemQuantity(item.id)}</span>
+                      <button className="qty-btn" onClick={() => handleAddToCart(item)}>+</button>
                     </div>
                   ) : (
-                    <button
-                      className="add-to-cart-btn"
-                      onClick={() => handleAddToCart(combo)}
-                    >
+                    <button className="add-to-cart-btn" onClick={() => handleAddToCart(item)}>
                       ADD
                     </button>
                   )}
@@ -383,10 +283,9 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
             ))}
           </div>
 
-          {/* ---- CHANGED: empty state now covers all filters, not just search ---- */}
-          {visibleCombos.length === 0 && (
+          {visibleItems.length === 0 && (
             <div className="no-results">
-              No items match your filters
+              No items in {activeCategoryName || 'this menu'} match your filters
               {searchTerm && ` for "${searchTerm}"`}.
               {(vegOnly || maxPrice) && ' Try clearing filters.'}
             </div>

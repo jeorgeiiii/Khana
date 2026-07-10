@@ -135,7 +135,7 @@ const nightlifePlaces = [
         location: "Mumbai",
         address: "Worli, Mumbai",
         type: "Lounge",
-        music: "Chill",
+        music: "Retro",
         happyHours: "5 PM - 8 PM",
         featured: false,
         openingTime: "5:00 PM",
@@ -214,7 +214,7 @@ const nightlifePlaces = [
         location: "Bangalore",
         address: "St. Marks Road, Bangalore",
         type: "Bar",
-        music: "Live Rock",
+        music: "Live Band",
         happyHours: "4 PM - 7 PM",
         featured: false,
         openingTime: "11:00 AM",
@@ -246,7 +246,7 @@ const nightlifePlaces = [
         location: "Jaipur",
         address: "MI Road, Jaipur",
         type: "Pub",
-        music: "Rock",
+        music: "Retro",
         happyHours: "5 PM - 8 PM",
         featured: true,
         openingTime: "5:00 PM",
@@ -325,7 +325,7 @@ const nightlifePlaces = [
         location: "Hyderabad",
         address: "Gachibowli, Hyderabad",
         type: "Bar",
-        music: "Live Rock",
+        music: "Live Band",
         happyHours: "4 PM - 7 PM",
         featured: false,
         openingTime: "11:00 AM",
@@ -509,11 +509,17 @@ const nightlifePlaces = [
 ];
 
 const seedNightlife = async () => {
+    const shouldManageConnection = mongoose.connection.readyState === 0;
+
     try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            dbName: process.env.DB_NAME || 'zomoro_db'
-        });
-        console.log('✅ Connected to MongoDB');
+        if (shouldManageConnection) {
+            await mongoose.connect(process.env.MONGO_URI, {
+                dbName: process.env.DB_NAME || 'zomoro_db'
+            });
+            console.log('✅ Connected to MongoDB');
+        } else {
+            console.log('ℹ️ MongoDB already connected; reusing existing connection');
+        }
 
         const existingCount = await Nightlife.countDocuments();
         if (existingCount > 0) {
@@ -539,9 +545,12 @@ const seedNightlife = async () => {
     } catch (error) {
         console.error('❌ Error seeding nightlife:', error);
     } finally {
-        await mongoose.disconnect();
-        console.log('\n👋 Disconnected from MongoDB');
+        if (shouldManageConnection) {
+            await mongoose.disconnect();
+            console.log('\n👋 Disconnected from MongoDB');
+        }
     }
 };
 
 module.exports = { nightlifePlaces, seedNightlife };
+seedNightlife();

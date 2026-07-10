@@ -6,19 +6,21 @@ const path = require('path');
 const http = require('http');
 const connectDB = require('./config/db');
 const { initSocket } = require('./socket');
-const { seedNightlife } = require('./seed/nightlife');
+
 // Configuration
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 // DB connection
-connectDB().then(() => {
-    seedNightlife();
-});
+connectDB();
 
 // App + HTTP server + Socket.io
 const app = express();
 const server = http.createServer(app);
 const io = initSocket(server);
+
+// Start the daily-thali auto-order scheduler
+require('./services/subscriptionScheduler').start(io);
+
 
 // Middleware
 app.use(cors({
@@ -53,6 +55,8 @@ app.use('/api/v1/review', require('./routes/reviewRoutes'));
 app.use('/api/v1/cart', require('./routes/cartRoutes'));
 app.use('/api/v1/payment', require('./routes/paymentRoutes'));
 app.use('/api/v1/s3',require('./routes/s3Routes'));
+app.use('/api/v1/chatbot', require('./routes/chatbotRoutes'));
+app.use('/api/v1/subscriptions', require('./routes/subscriptionRoutes'));
 
 // Home route
 app.get('/', (req, res) => {

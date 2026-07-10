@@ -18,6 +18,8 @@ import DeliveryDashboard from './components/DeliveryBoy/DeliveryDashboard';
 import CustomerTrackOrder from './pages/CustomerTrackOrder';
 import OrderConfirmation from './pages/OrderConfirmation';
 import InfoPage from './pages/InfoPage';
+import Subscriptions from './pages/Subscriptions';
+import ChatBot from './components/ChatBot';
 // Login imports
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -39,7 +41,6 @@ function HomeContent({
   setSelectedRestaurantForCart
 }) {
   const navigate = useNavigate();
-  const [filters, setFilters] = useState({ pureVeg: false, cuisine: 'All' });
 
   const handleRestaurantClick = (restaurant) => {
     console.log('Selected restaurant:', restaurant);
@@ -55,7 +56,6 @@ function HomeContent({
   const addToCart = (item, restaurant) => {
     console.log('Added to cart:', item);
 
-    // Save to localStorage
     const existingCart = JSON.parse(localStorage.getItem('cartItems') || '[]');
     const existingIndex = existingCart.findIndex(i => i._id === item._id);
 
@@ -96,12 +96,6 @@ function HomeContent({
   const handleOrderOnlineClick = (restaurantId) => {
     console.log('Order online clicked for:', restaurantId);
     setCurrentView('orderOnline');
-  };
-
-  const handleLogoClick = () => {
-    setCurrentView('home');
-    setSelectedRestaurant(null);
-    navigate('/home');
   };
 
   const handleAddRestaurantClick = () => {
@@ -188,7 +182,6 @@ function HomeContent({
             <Card
               onRestaurantClick={handleRestaurantClick}
               location={selectedLocation}
-              filters={filters}
             />
             <Footer />
           </>
@@ -199,7 +192,6 @@ function HomeContent({
           <>
             <div className="home-header">
               <h1>Restaurants Near You</h1>
-              {/* Only show the admin button to Admins */}
               {JSON.parse(localStorage.getItem('user') || '{}').usertype === 'Admin' && (
                 <button
                   onClick={handleAddRestaurantClick}
@@ -225,7 +217,6 @@ function HomeContent({
             <Card
               onRestaurantClick={handleRestaurantClick}
               location={selectedLocation}
-              filters={filters}
             />
             <Footer />
           </>
@@ -241,8 +232,6 @@ function HomeContent({
         selectedLocation={selectedLocation}
         cartItems={cartItems}
         setShowCheckout={setShowCheckout}
-        filters={filters}
-        onFilterChange={setFilters}
       />
       <main className="main-content">
         {renderCurrentView()}
@@ -251,7 +240,7 @@ function HomeContent({
   );
 }
 
-// Small wrapper so the checkout route can use navigate() (it lives inside the Router)
+// Wrapper so the checkout route can use navigate() (it lives inside the Router)
 function CheckoutPage({ cartItems, restaurant, clearCart }) {
   const navigate = useNavigate();
   return (
@@ -273,20 +262,14 @@ function App() {
   const [showCheckout, setShowCheckout] = useState(false);
   const [selectedRestaurantForCart, setSelectedRestaurantForCart] = useState(null);
 
-  // Check authentication on load
   React.useEffect(() => {
     const token = localStorage.getItem('token');
     setIsAuthenticated(!!token);
 
-    // Load cart from localStorage
     const savedCart = localStorage.getItem('cartItems');
     const savedRestaurant = localStorage.getItem('selectedRestaurant');
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
-    }
-    if (savedRestaurant) {
-      setSelectedRestaurantForCart(JSON.parse(savedRestaurant));
-    }
+    if (savedCart) setCartItems(JSON.parse(savedCart));
+    if (savedRestaurant) setSelectedRestaurantForCart(JSON.parse(savedRestaurant));
   }, []);
 
   // Logged-in check only
@@ -300,12 +283,8 @@ function App() {
     const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-    if (!token) {
-      return <Navigate to="/login" />;
-    }
-    if (!allow.includes(user.usertype)) {
-      return <Navigate to="/home" />;
-    }
+    if (!token) return <Navigate to="/login" />;
+    if (!allow.includes(user.usertype)) return <Navigate to="/home" />;
     return element;
   };
 
@@ -361,6 +340,11 @@ function App() {
             <PrivateRoute element={<Profile />} />
           } />
 
+          {/* Daily thali subscriptions */}
+          <Route path="/subscriptions" element={
+            <PrivateRoute element={<Subscriptions />} />
+          } />
+
           <Route path="/cart" element={
             <PrivateRoute element={<CartPage />} />
           } />
@@ -387,6 +371,9 @@ function App() {
             isAuthenticated ? <Navigate to="/home" /> : <Navigate to="/login" />
           } />
         </Routes>
+
+        {/* Floating thali assistant — appears on every page */}
+        <ChatBot />
       </div>
     </BrowserRouter>
   );

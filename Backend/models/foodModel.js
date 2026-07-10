@@ -1,4 +1,4 @@
-const { rainbow } = require('colors');
+
 const mongoose=require('mongoose');
 const resturantModel = require('./resturantModel');
 
@@ -59,7 +59,13 @@ const foodSchema=new mongoose.Schema(
        Rating_Count:{
         type:String,
 
-       }
+       },
+
+       mealType:{
+        type:String,
+        enum:['afternoon','dinner','both'],
+        default:'both'
+       },
 
 
 

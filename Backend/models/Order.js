@@ -43,7 +43,7 @@ const orderSchema = new mongoose.Schema({
     },
     orderStatus: {
         type: String,
-        enum: ['pending', 'confirmed', 'preparing', 'out_for_delivery', 'delivered', 'cancelled'],
+        enum: ['pending_payment','pending', 'confirmed', 'preparing', 'out_for_delivery', 'delivered', 'cancelled','expired'],
         default: 'pending'
     },
     subtotal: Number,
@@ -51,6 +51,17 @@ const orderSchema = new mongoose.Schema({
     deliveryFee: Number,
     totalAmount: Number,
     estimatedDeliveryTime: String,
+     expiresAt: {
+        type: Date
+    },
+    isSubscriptionOrder: {
+        type: Boolean,
+        default: false
+    },
+    subscriptionId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Subscription'
+    },
     createdAt: { type: Date, default: Date.now }
 });
 
