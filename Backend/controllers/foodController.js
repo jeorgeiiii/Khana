@@ -133,6 +133,7 @@ const getFoodByResturantController= async(req,res)=>{
             return res.status(200).send({
                 success:true,
                 message:'No menu items found for this restaurant',
+                foods: [],
                 food: []
             });
         }
@@ -140,6 +141,7 @@ const getFoodByResturantController= async(req,res)=>{
         res.status(200).send({
             success:true,
             message:'Food Based On Resturant',
+            foods: food,
             food,
         })
     } catch (error) {

@@ -3,6 +3,13 @@ import axios from 'axios';
 // Just update the URL, keep everything else exactly as is
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api/v1';
 
+// The menu endpoint has returned the list under either `foods` or `food`
+const extractFoods = (data) => {
+  if (Array.isArray(data?.foods)) return data.foods;
+  if (Array.isArray(data?.food)) return data.food;
+  return [];
+};
+
 const restaurantApi = {
   // Get all restaurants
   getAllRestaurants: async () => {
@@ -30,7 +37,7 @@ const restaurantApi = {
   getRestaurantMenu: async (restaurantId) => {
     try {
       const response = await axios.get(`${API_URL}/food/restaurant/${restaurantId}`);
-      return response.data;
+      return { ...response.data, foods: extractFoods(response.data) };
     } catch (error) {
       console.error('Error fetching menu:', error);
       return { foods: [] };
@@ -63,13 +70,11 @@ const restaurantApi = {
 
       try {
         const foodResponse = await axios.get(`${API_URL}/food/restaurant/${restaurantId}`);
-        if (foodResponse.data?.foods) {
-          foodResponse.data.foods.forEach(food => {
+        extractFoods(foodResponse.data).forEach(food => {
             if (food.ImageURL) {
               photos.push({ url: food.ImageURL, type: 'food', foodName: food.Title });
             }
-          });
-        }
+        });
       } catch (foodError) {
         console.log('No food images found');
       }
@@ -85,11 +90,9 @@ const restaurantApi = {
   getRestaurantCategories: async (restaurantId) => {
     try {
       const response = await axios.get(`${API_URL}/food/restaurant/${restaurantId}`);
-      if (response.data?.foods) {
-        const categories = [...new Set(response.data.foods.map(food => food.category || food.Category || 'Other'))];
-        return { categories: categories.map(cat => ({ name: cat })) };
-      }
-      return { categories: [] };
+      const foods = extractFoods(response.data);
+      const categories = [...new Set(foods.map(food => food.category || food.Category || 'Other'))];
+      return { categories: categories.map(cat => ({ name: cat })) };
     } catch (error) {
       console.error('Error fetching categories:', error);
       return { categories: [] };
