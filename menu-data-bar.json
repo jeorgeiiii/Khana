@@ -1,0 +1,227 @@
+[
+  {
+    "restaurantTitle": "The Beer Cafe",
+    "items": [
+      {
+        "Title": "Craft Beer (Draft)",
+        "Description": "House-brewed craft beer, choice of IPA, Stout, or Wheat",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=500",
+        "FoodTags": "drink,beer,alcohol",
+        "Category": "Beers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Imported Beer (Bottle)",
+        "Description": "Selection of imported beers (Heineken, Corona, Stella)",
+        "Price": 350,
+        "ImageURL": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=500",
+        "FoodTags": "drink,beer,imported",
+        "Category": "Beers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Red Wine (Glass)",
+        "Description": "Smooth red wine (Shiraz, Merlot)",
+        "Price": 390,
+        "ImageURL": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500",
+        "FoodTags": "drink,wine,red",
+        "Category": "Wines",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "White Wine (Glass)",
+        "Description": "Crisp white wine (Sauvignon Blanc, Chardonnay)",
+        "Price": 390,
+        "ImageURL": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500",
+        "FoodTags": "drink,wine,white",
+        "Category": "Wines",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Sparkling Wine (Glass)",
+        "Description": "Effervescent sparkling wine or prosecco",
+        "Price": 450,
+        "ImageURL": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500",
+        "FoodTags": "drink,wine,sparkling",
+        "Category": "Wines",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Classic Margarita",
+        "Description": "Tequila, lime juice, triple sec, salt rim",
+        "Price": 380,
+        "ImageURL": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?w=500",
+        "FoodTags": "drink,cocktail,tequila",
+        "Category": "Cocktails",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Mojito",
+        "Description": "White rum, mint, lime, sugar, soda",
+        "Price": 360,
+        "ImageURL": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?w=500",
+        "FoodTags": "drink,cocktail,rum",
+        "Category": "Cocktails",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Old Fashioned",
+        "Description": "Whiskey, bitters, sugar, orange twist",
+        "Price": 420,
+        "ImageURL": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?w=500",
+        "FoodTags": "drink,cocktail,whiskey",
+        "Category": "Cocktails",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Whiskey Sour",
+        "Description": "Whiskey, lemon juice, simple syrup, egg white",
+        "Price": 400,
+        "ImageURL": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?w=500",
+        "FoodTags": "drink,cocktail,whiskey",
+        "Category": "Cocktails",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Premium Whiskey (Single Malt)",
+        "Description": "Single malt scotch whiskey, choice of Glenfiddich or Macallan",
+        "Price": 550,
+        "ImageURL": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?w=500",
+        "FoodTags": "drink,whiskey,spirit",
+        "Category": "Spirits",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Vodka Tonic",
+        "Description": "Premium vodka with tonic water and lime",
+        "Price": 340,
+        "ImageURL": "https://images.unsplash.com/photo-1556855810-ac404aa91e85?w=500",
+        "FoodTags": "drink,vodka,spirit",
+        "Category": "Spirits",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Nachos Grande",
+        "Description": "Crispy tortilla chips with cheese, jalapeños, salsa, sour cream",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1513456852971-6c1b8fe3e9b8?w=500",
+        "FoodTags": "bar-food,snack,veg",
+        "Category": "Bar Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Wings (6 pcs)",
+        "Description": "Spicy chicken wings with blue cheese dip",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1513456852971-6c1b8fe3e9b8?w=500",
+        "FoodTags": "bar-food,non-veg",
+        "Category": "Bar Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Loaded Fries",
+        "Description": "Fries topped with cheese, bacon, and jalapeños",
+        "Price": 240,
+        "ImageURL": "https://images.unsplash.com/photo-1513456852971-6c1b8fe3e9b8?w=500",
+        "FoodTags": "bar-food,snack,non-veg",
+        "Category": "Bar Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Sliders (3 pcs)",
+        "Description": "Mini burgers with cheese, pickles, and sauce",
+        "Price": 350,
+        "ImageURL": "https://images.unsplash.com/photo-1513456852971-6c1b8fe3e9b8?w=500",
+        "FoodTags": "bar-food,burger,non-veg",
+        "Category": "Sliders",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Classic Burger",
+        "Description": "Beef patty with lettuce, tomato, onion, cheese, and sauce",
+        "Price": 300,
+        "ImageURL": "https://images.unsplash.com/photo-1513456852971-6c1b8fe3e9b8?w=500",
+        "FoodTags": "bar-food,burger,non-veg",
+        "Category": "Burgers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veggie Burger",
+        "Description": "Grilled vegetable patty with cheese and sauce",
+        "Price": 260,
+        "ImageURL": "https://images.unsplash.com/photo-1513456852971-6c1b8fe3e9b8?w=500",
+        "FoodTags": "bar-food,burger,veg",
+        "Category": "Burgers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Sandwich",
+        "Description": "Grilled chicken breast with lettuce, tomato, and mayo",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1513456852971-6c1b8fe3e9b8?w=500",
+        "FoodTags": "bar-food,sandwich,non-veg",
+        "Category": "Sandwiches",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chocolate Brownie with Ice Cream",
+        "Description": "Warm chocolate brownie topped with vanilla ice cream",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500",
+        "FoodTags": "dessert,bar-food,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Cheesecake",
+        "Description": "Classic New York cheesecake with berry compote",
+        "Price": 240,
+        "ImageURL": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500",
+        "FoodTags": "dessert,bar-food,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  }
+]

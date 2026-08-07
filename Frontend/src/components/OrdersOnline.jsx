@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import restaurantApi from '../services/restaurantApi';
-// All menu data lives in menuData.js — 99 items across 11 categories
-import { staticCategories, allStaticItems } from './menuData';
 
 const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
   const [menu, setMenu] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [restaurantReviewCount, setRestaurantReviewCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState(0);
   const [searchTerm, setSearchTerm] = useState('');
@@ -25,18 +24,30 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
         setLoading(true);
         try {
           const menuData = await restaurantApi.getRestaurantMenu(restaurant._id);
-          setMenu(menuData.foods || []);
+          const foods = menuData.foods || [];
+          setMenu(foods);
 
           const categoriesData = await restaurantApi.getRestaurantCategories(restaurant._id);
           if (categoriesData.categories?.length > 0) {
             const formattedCategories = categoriesData.categories.map((cat) => ({
               name: cat.name,
-              count: menuData.foods?.filter(item =>
-                (item.Category || item.category) === cat.name
-              ).length || 0
+              count: foods.filter(item => {
+                const itemCategory = item.Category || item.category || 'Other';
+                return String(itemCategory).trim() === String(cat.name).trim();
+              }).length || 0
             }));
             setCategories(formattedCategories);
+          } else if (foods.length > 0) {
+            const groupedCategories = foods.reduce((acc, item) => {
+              const category = item.Category || item.category || 'Other';
+              acc[category] = (acc[category] || 0) + 1;
+              return acc;
+            }, {});
+            setCategories(Object.entries(groupedCategories).map(([name, count]) => ({ name, count })));
           }
+
+          const reviewsData = await restaurantApi.getRestaurantReviews(restaurant._id);
+          setRestaurantReviewCount(reviewsData.reviews?.length || 0);
         } catch (error) {
           console.error('Error fetching menu data:', error);
         } finally {
@@ -53,30 +64,26 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
     setActiveCategory(0);
   }, [menu.length]);
 
-  // The category list actually shown in the sidebar
-  const visibleCategories = categories.length > 0 ? categories : staticCategories;
+  const visibleCategories = categories.length > 0 ? categories : [];
   const activeCategoryName = visibleCategories[activeCategory]?.name;
 
-  // Build the item list: DB menu if present, otherwise all static items
   const getAllItems = () => {
-    if (menu.length > 0) {
-      return menu.map((item, idx) => ({
-        id: item._id || idx,
-        name: item.Title || item.name,
-        price: item.Price || item.price || 199,
-        priceText: `₹${item.Price || item.price || 199}`,
-        desc: item.Description || item.description || item.desc || 'Delicious food item',
-        category: item.Category || item.category || 'Other',
-        veg: item.veg !== false,
-        image: item.ImageURL
-      }));
-    }
-    return allStaticItems;
+    return menu.map((item, idx) => ({
+      id: item._id || idx,
+      name: item.Title || item.name || 'Food Item',
+      price: Number(item.Price || item.price || 199),
+      priceText: `₹${Number(item.Price || item.price || 199)}`,
+      desc: item.Description || item.description || item.desc || 'Delicious food item',
+      category: item.Category || item.category || 'Other',
+      veg: item.veg !== false && !String(item.FoodTags || '').toLowerCase().includes('non-veg') && !String(item.Category || '').toLowerCase().includes('non-veg'),
+      image: item.ImageURL
+    }));
   };
 
   // Chain all filters: category + search + veg + price
   const applyFilters = (list) => list.filter(item => {
-    const matchesCategory = !activeCategoryName || item.category === activeCategoryName;
+    const normalizedCategory = String(item.category || '').trim();
+    const matchesCategory = !activeCategoryName || normalizedCategory === activeCategoryName;
     const matchesSearch = !searchTerm ||
       item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (item.desc || '').toLowerCase().includes(searchTerm.toLowerCase());
@@ -161,10 +168,9 @@ const OrderOnline = ({ restaurant, onBack, addToCart, cartItems = [] }) => {
       <nav className="order-online-tabs">
         <span className="tab">Overview</span>
         <span className="tab active">Order Online</span>
-        <span className="tab">Reviews</span>
+        <span className="tab">Reviews ({restaurantReviewCount})</span>
         <span className="tab">Photos</span>
         <span className="tab">Menu</span>
-        <span className="tab">Book a Table</span>
       </nav>
 
       {loading && <div className="loading-spinner">Loading menu...</div>}

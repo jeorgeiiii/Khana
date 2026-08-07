@@ -3,6 +3,7 @@ import { io } from 'socket.io-client';
 class SocketService {
     constructor() {
         this.socket = null;
+        this.pendingUserId = null;
     }
 
     connect() {
@@ -17,6 +18,9 @@ class SocketService {
 
         this.socket.on('connect', () => {
             console.log('✅ Connected to tracking server');
+            if (this.pendingUserId) {
+                this.socket.emit('join-user', { userId: this.pendingUserId });
+            }
         });
 
         this.socket.on('disconnect', () => {
@@ -34,6 +38,15 @@ class SocketService {
         this.socket.emit('track-order', { orderId });
     }
 
+    joinUser(userId) {
+        if (!userId) return;
+        this.pendingUserId = userId;
+        this.connect();
+        if (this.socket?.connected) {
+            this.socket.emit('join-user', { userId });
+        }
+    }
+
     updateLocation(driverId, orderId, location) {
         if (this.socket?.connected) {
             this.socket.emit('driver-location-update', { driverId, orderId, location });
@@ -46,6 +59,14 @@ class SocketService {
 
     onOrderStatusUpdate(callback) {
         this.socket?.on('order-status-update', callback);
+    }
+
+    onPaymentRequired(callback) {
+        this.socket?.on('payment-required', callback);
+    }
+
+    offPaymentRequired(callback) {
+        this.socket?.off('payment-required', callback);
     }
 
     off(event, callback) {

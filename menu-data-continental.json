@@ -1,0 +1,692 @@
+[
+  {
+    "restaurantTitle": "The Continental Table",
+    "items": [
+      {
+        "Title": "Grilled Chicken Breast",
+        "Description": "Juicy grilled chicken with herb butter and vegetables",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "continental,grilled,chicken,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Fish & Chips",
+        "Description": "Crispy battered fish with golden fries and tartar sauce",
+        "Price": 380,
+        "ImageURL": "https://images.unsplash.com/photo-1534360800754-8b1a141f092c?w=500",
+        "FoodTags": "continental,seafood,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Classic Caesar Salad",
+        "Description": "Romaine lettuce, croutons, parmesan, Caesar dressing",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "continental,salad,veg",
+        "Category": "Salads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Creamy Mushroom Pasta",
+        "Description": "Fettuccine in creamy mushroom sauce with herbs",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1645112411342-68946d0b0c5c?w=500",
+        "FoodTags": "continental,pasta,veg",
+        "Category": "Pasta",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Grilled Salmon",
+        "Description": "Grilled salmon fillet with lemon butter sauce",
+        "Price": 450,
+        "ImageURL": "https://images.unsplash.com/photo-1534360800754-8b1a141f092c?w=500",
+        "FoodTags": "continental,seafood,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Garlic Bread",
+        "Description": "Crispy bread with garlic butter and herbs",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=500",
+        "FoodTags": "continental,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Beef Steak",
+        "Description": "Grilled beef steak with mushroom sauce and fries",
+        "Price": 520,
+        "ImageURL": "https://images.unsplash.com/photo-1534360800754-8b1a141f092c?w=500",
+        "FoodTags": "continental,steak,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "French Onion Soup",
+        "Description": "Classic onion soup with cheese croutons",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "continental,soup,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tiramisu",
+        "Description": "Classic Italian coffee-flavoured dessert",
+        "Price": 200,
+        "ImageURL": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+        "FoodTags": "continental,dessert,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Bruschetta",
+        "Description": "Toasted bread with tomato, basil, and olive oil",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=500",
+        "FoodTags": "continental,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Canton Wok",
+    "items": [
+      {
+        "Title": "Veg Hakka Noodles",
+        "Description": "Stir-fried noodles with fresh vegetables",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "chinese,noodles,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Hakka Noodles",
+        "Description": "Stir-fried noodles with chicken and vegetables",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "chinese,noodles,non-veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Fried Rice",
+        "Description": "Fragrant rice stir-fried with vegetables and egg",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "chinese,rice,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Fried Rice",
+        "Description": "Rice stir-fried with chicken and vegetables",
+        "Price": 210,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "chinese,rice,non-veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chilli Paneer",
+        "Description": "Cottage cheese in spicy chilli sauce",
+        "Price": 240,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "chinese,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chilli Chicken",
+        "Description": "Boneless chicken in spicy chilli sauce",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "chinese,starter,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Manchurian (Veg)",
+        "Description": "Fried veg balls in tangy manchurian sauce",
+        "Price": 200,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "chinese,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Manchurian (Chicken)",
+        "Description": "Fried chicken in tangy manchurian sauce",
+        "Price": 250,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "chinese,starter,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spring Rolls (4 pcs)",
+        "Description": "Crispy rolls with vegetable filling",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "chinese,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Schezwan Fried Rice",
+        "Description": "Spicy schezwan style fried rice",
+        "Price": 190,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "chinese,rice,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Sakura Japanese",
+    "items": [
+      {
+        "Title": "California Roll (8 pcs)",
+        "Description": "Crab, avocado, cucumber in sushi rice",
+        "Price": 350,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,sushi,non-veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spicy Tuna Roll (8 pcs)",
+        "Description": "Tuna with spicy mayo and cucumber",
+        "Price": 400,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,sushi,non-veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Vegetarian Roll (8 pcs)",
+        "Description": "Avocado, cucumber, carrot, pickled radish",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,sushi,veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tempura Shrimp Roll (8 pcs)",
+        "Description": "Crispy shrimp tempura with avocado",
+        "Price": 420,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,sushi,non-veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Miso Soup",
+        "Description": "Classic Japanese soup with tofu and seaweed",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "japanese,soup,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Edamame",
+        "Description": "Steamed soy beans with salt",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Sashimi Platter",
+        "Description": "Assorted fresh fish slices (salmon, tuna)",
+        "Price": 600,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,sashimi,non-veg",
+        "Category": "Sashimi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Teriyaki Bowl",
+        "Description": "Grilled chicken with teriyaki sauce and rice",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,rice,non-veg",
+        "Category": "Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Vegetable Tempura",
+        "Description": "Crispy battered vegetables",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Green Tea Ice Cream",
+        "Description": "Matcha flavoured ice cream",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "japanese,dessert,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Seoul Kitchen",
+    "items": [
+      {
+        "Title": "Kimchi Jjigae",
+        "Description": "Spicy kimchi stew with tofu and pork",
+        "Price": 350,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,stew,non-veg",
+        "Category": "Soups & Stews",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Bibimbap (Veg)",
+        "Description": "Mixed rice bowl with vegetables, egg, and gochujang",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,rice,veg",
+        "Category": "Rice Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Bibimbap (Chicken)",
+        "Description": "Mixed rice bowl with chicken and vegetables",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,rice,non-veg",
+        "Category": "Rice Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Korean Fried Chicken",
+        "Description": "Crispy fried chicken with sweet and spicy sauce",
+        "Price": 380,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,chicken,non-veg",
+        "Category": "Chicken",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Kimchi",
+        "Description": "Traditional fermented spicy cabbage",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,sides,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tteokbokki",
+        "Description": "Spicy rice cakes in gochujang sauce",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,street-food,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Bulgogi Bowl",
+        "Description": "Marinated grilled beef with rice and vegetables",
+        "Price": 390,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,beef,non-veg",
+        "Category": "Rice Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Japchae",
+        "Description": "Stir-fried glass noodles with vegetables",
+        "Price": 250,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,noodles,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Korean BBQ Pork",
+        "Description": "Grilled marinated pork with lettuce wraps",
+        "Price": 400,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "korean,pork,non-veg",
+        "Category": "BBQ",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Soybean Sprout Soup",
+        "Description": "Light and nutritious soybean sprout soup",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "korean,soup,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Colombian Cocina",
+    "items": [
+      {
+        "Title": "Bandeja Paisa",
+        "Description": "Traditional Colombian platter with beans, rice, pork, sausage, egg, and arepa",
+        "Price": 450,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "colombian,platter,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Arepa con Queso",
+        "Description": "Grilled corn cake with cheese and butter",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "colombian,snack,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Empanadas (Chicken)",
+        "Description": "Crispy pastries filled with spiced chicken",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "colombian,snack,non-veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Empanadas (Veg)",
+        "Description": "Crispy pastries filled with potatoes and cheese",
+        "Price": 130,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "colombian,snack,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Sancocho de Gallina",
+        "Description": "Traditional chicken soup with yucca, corn, and plantain",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "colombian,soup,non-veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Arroz con Pollo",
+        "Description": "Colombian-style chicken rice with vegetables",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "colombian,rice,non-veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Patacones",
+        "Description": "Twice-fried green plantain chips",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "colombian,sides,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Churrasco",
+        "Description": "Grilled steak served with arepa, rice, and beans",
+        "Price": 480,
+        "ImageURL": "https://images.unsplash.com/photo-1534360800754-8b1a141f092c?w=500",
+        "FoodTags": "colombian,steak,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tres Leches Cake",
+        "Description": "Classic three-milk sponge cake",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+        "FoodTags": "colombian,dessert,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Aguapanela",
+        "Description": "Traditional sugarcane drink with lime",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "colombian,beverage,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Asian Wok House",
+    "items": [
+      {
+        "Title": "Pad Thai Noodles",
+        "Description": "Stir-fried rice noodles with vegetables and peanuts",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500",
+        "FoodTags": "asian,noodles,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Green Curry",
+        "Description": "Coconut milk based curry with vegetables",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=500",
+        "FoodTags": "asian,curry,veg",
+        "Category": "Curry",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tom Yum Soup",
+        "Description": "Spicy and sour soup with mushrooms and lemongrass",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "asian,soup,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Fried Rice",
+        "Description": "Fragrant rice with vegetables and Thai herbs",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "asian,rice,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spring Rolls (Thai)",
+        "Description": "Crispy rolls with vegetables and glass noodles",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "asian,starter,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Sticky Rice",
+        "Description": "Steamed glutinous rice",
+        "Price": 90,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "asian,rice,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Red Curry",
+        "Description": "Spicy red curry with vegetables and basil",
+        "Price": 330,
+        "ImageURL": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=500",
+        "FoodTags": "asian,curry,veg",
+        "Category": "Curry",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Mango Sticky Rice",
+        "Description": "Sweet mango with sticky rice and coconut milk",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500",
+        "FoodTags": "asian,dessert,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Iced Tea",
+        "Description": "Sweet and creamy Thai iced tea",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "asian,beverage,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Pad See Ew",
+        "Description": "Stir-fried wide noodles with broccoli and egg",
+        "Price": 260,
+        "ImageURL": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500",
+        "FoodTags": "asian,noodles,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  }
+]

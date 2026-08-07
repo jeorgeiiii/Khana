@@ -3,7 +3,12 @@ const resturantModel = require("../models/resturantModel");
 const foodModel = require("../models/foodModel");
 // Comment out models that don't exist yet
 
-
+const buildRestaurantMenuQuery = (restaurantId) => ({
+    $or: [
+        { resturant: restaurantId },
+        { restaurantId: restaurantId }
+    ]
+});
 
 const createResturantController = async(req ,res) => {
     try {
@@ -136,7 +141,7 @@ const getRestaurantMenuController = async(req, res) => {
         const restaurantId = req.params.id;
         
         // Find all food items for this restaurant
-        const menu = await foodModel.find({ restaurantId: restaurantId });
+        const menu = await foodModel.find(buildRestaurantMenuQuery(restaurantId));
         
         res.status(200).send({
             success: true,
@@ -158,7 +163,7 @@ const getRestaurantCategoriesController = async(req, res) => {
         const restaurantId = req.params.id;
         
         // Get unique categories from food items
-        const categories = await foodModel.distinct('category', { restaurantId: restaurantId });
+        const categories = await foodModel.distinct('Category', buildRestaurantMenuQuery(restaurantId));
         
         res.status(200).send({
             success: true,
@@ -193,7 +198,7 @@ const getRestaurantPhotosController = async(req, res) => {
         }
         
         // Get food images
-        const foodItems = await foodModel.find({ restaurantId: restaurantId }).select('ImageURL Title');
+        const foodItems = await foodModel.find(buildRestaurantMenuQuery(restaurantId)).select('ImageURL Title');
         foodItems.forEach(item => {
             if (item.ImageURL) {
                 photos.push({ 

@@ -1,0 +1,1842 @@
+[
+  {
+    "restaurantTitle": "Olio - The Wood Fired Pizzeria",
+    "items": [
+      {
+        "Title": "Margherita Pizza",
+        "Description": "Classic cheese and tomato pizza with fresh basil",
+        "Price": 250,
+        "ImageURL": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500",
+        "FoodTags": "pizza,italian,veg",
+        "Category": "Pizza",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Pepperoni Pizza",
+        "Description": "Spicy pepperoni with mozzarella and tomato sauce",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500",
+        "FoodTags": "pizza,italian,non-veg",
+        "Category": "Pizza",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Farmhouse Pizza",
+        "Description": "Loaded with bell peppers, onions, mushrooms, and olives",
+        "Price": 350,
+        "ImageURL": "https://images.unsplash.com/photo-1593560704563-1762e9df7b0d?w=500",
+        "FoodTags": "pizza,italian,veg",
+        "Category": "Pizza",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Garlic Bread",
+        "Description": "Crispy bread with garlic butter and herbs",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=500",
+        "FoodTags": "starters,italian,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Cheesy Garlic Bread",
+        "Description": "Garlic bread topped with melted mozzarella",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=500",
+        "FoodTags": "starters,italian,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "White Sauce Pasta",
+        "Description": "Creamy white sauce pasta with vegetables",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1645112411342-68946d0b0c5c?w=500",
+        "FoodTags": "pasta,italian,veg",
+        "Category": "Pasta",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Red Sauce Pasta",
+        "Description": "Tangy tomato sauce pasta with herbs",
+        "Price": 210,
+        "ImageURL": "https://images.unsplash.com/photo-1645112411342-68946d0b0c5c?w=500",
+        "FoodTags": "pasta,italian,veg",
+        "Category": "Pasta",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Margherita Pizza (Large)",
+        "Description": "Extra large classic pizza, serves 3-4",
+        "Price": 399,
+        "ImageURL": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500",
+        "FoodTags": "pizza,italian,veg",
+        "Category": "Pizza",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chocolate Lava Cake",
+        "Description": "Warm chocolate cake with molten center",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=500",
+        "FoodTags": "dessert,italian,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tiramisu",
+        "Description": "Classic Italian coffee-flavoured dessert",
+        "Price": 200,
+        "ImageURL": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+        "FoodTags": "dessert,italian,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Tandoori Nights",
+    "items": [
+      {
+        "Title": "Chicken Biryani",
+        "Description": "Fragrant basmati rice layered with spiced chicken",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1563379091339-03b21ab4a5f8?w=500",
+        "FoodTags": "biryani,mughlai,non-veg",
+        "Category": "Biryani",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Mutton Biryani",
+        "Description": "Tender mutton cooked with aromatic spices and rice",
+        "Price": 380,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "biryani,mughlai,non-veg",
+        "Category": "Biryani",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Butter Chicken",
+        "Description": "Creamy tomato-based curry with tender chicken",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500",
+        "FoodTags": "curry,mughlai,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Paneer Butter Masala",
+        "Description": "Cottage cheese in a rich butter gravy",
+        "Price": 260,
+        "ImageURL": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500",
+        "FoodTags": "curry,mughlai,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Dal Makhani",
+        "Description": "Slow-cooked black lentils with cream and butter",
+        "Price": 210,
+        "ImageURL": "https://images.unsplash.com/photo-1546833999-b9f581a6e9ef?w=500",
+        "FoodTags": "dal,mughlai,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Garlic Naan",
+        "Description": "Tandoor-baked bread with garlic and butter",
+        "Price": 45,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "bread,mughlai,veg",
+        "Category": "Breads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Roomali Roti",
+        "Description": "Thin hand-stretched whole wheat bread",
+        "Price": 30,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "bread,mughlai,veg",
+        "Category": "Breads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Raita",
+        "Description": "Yogurt with cucumber and spices",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "sides,mughlai,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Gulab Jamun",
+        "Description": "Soft milk dumplings soaked in sugar syrup",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1589119908995-f8830c9f8a5d?w=500",
+        "FoodTags": "dessert,mughlai,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Tikka",
+        "Description": "Grilled marinated chicken pieces",
+        "Price": 290,
+        "ImageURL": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500",
+        "FoodTags": "starter,mughlai,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Apna Sweets",
+    "items": [
+      {
+        "Title": "Gulab Jamun (2 pcs)",
+        "Description": "Classic soft milk balls in sugar syrup",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1589119908995-f8830c9f8a5d?w=500",
+        "FoodTags": "sweets,dessert,veg",
+        "Category": "Sweets",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Jalebi (100g)",
+        "Description": "Crispy, juicy spiral sweets",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1602357285804-1f6f6e5f2b9c?w=500",
+        "FoodTags": "sweets,dessert,veg",
+        "Category": "Sweets",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Rasgulla (2 pcs)",
+        "Description": "Soft cheese balls in light syrup",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1589119908995-f8830c9f8a5d?w=500",
+        "FoodTags": "sweets,dessert,veg",
+        "Category": "Sweets",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Kaju Katli (100g)",
+        "Description": "Rich cashew fudge",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1589119908995-f8830c9f8a5d?w=500",
+        "FoodTags": "sweets,dessert,veg",
+        "Category": "Sweets",
+        "isAvaliable": true,
+        "Rating": 5,
+        "mealType": "both"
+      },
+      {
+        "Title": "Ice Cream",
+        "Description": "Choice of vanilla, chocolate, or strawberry",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1589119908995-f8830c9f8a5d?w=500",
+        "FoodTags": "dessert,ice-cream,veg",
+        "Category": "Ice Cream",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Mango Lassi",
+        "Description": "Sweet mango yogurt drink",
+        "Price": 90,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "beverage,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chole Bhature",
+        "Description": "Spicy chickpea curry with fried bread",
+        "Price": 140,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "snack,veg,meal",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Samosa (2 pcs)",
+        "Description": "Crispy pastry filled with spiced potatoes",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "snack,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Aloo Tikki",
+        "Description": "Spiced potato patty served with chutney",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "snack,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Lassi",
+        "Description": "Traditional sweet or salted yogurt drink",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "beverage,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Chinese Wok",
+    "items": [
+      {
+        "Title": "Veg Hakka Noodles",
+        "Description": "Stir-fried noodles with vegetables",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "noodles,chinese,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Hakka Noodles",
+        "Description": "Stir-fried noodles with chicken and vegetables",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "noodles,chinese,non-veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Fried Rice",
+        "Description": "Basmati rice stir-fried with vegetables and egg",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,chinese,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Fried Rice",
+        "Description": "Basmati rice with chicken and vegetables",
+        "Price": 210,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,chinese,non-veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chilli Paneer",
+        "Description": "Cottage cheese tossed in spicy chilli sauce",
+        "Price": 240,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "starter,chinese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chilli Chicken",
+        "Description": "Boneless chicken in spicy chilli sauce",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "starter,chinese,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Manchurian (Veg)",
+        "Description": "Fried veg balls in tangy manchurian sauce",
+        "Price": 200,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "starter,chinese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Manchurian (Chicken)",
+        "Description": "Fried chicken in tangy manchurian sauce",
+        "Price": 250,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "starter,chinese,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spring Rolls (4 pcs)",
+        "Description": "Crispy rolls with veg filling",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "starter,chinese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Schezwan Fried Rice",
+        "Description": "Spicy schezwan style fried rice",
+        "Price": 190,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,chinese,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "South Indian Cafe",
+    "items": [
+      {
+        "Title": "Masala Dosa",
+        "Description": "Crispy dosa with spicy potato filling",
+        "Price": 90,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "dosa,south-indian,veg",
+        "Category": "Dosa",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Plain Dosa",
+        "Description": "Classic thin crispy dosa",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "dosa,south-indian,veg",
+        "Category": "Dosa",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Idli Sambhar",
+        "Description": "Steamed rice cakes with lentil soup",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "idli,south-indian,veg",
+        "Category": "Idli",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Vada Sambhar",
+        "Description": "Crispy lentil donuts with soup",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "vada,south-indian,veg",
+        "Category": "Vada",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Uttapam",
+        "Description": "Thick pancake with onion and tomato toppings",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "uttapam,south-indian,veg",
+        "Category": "Uttapam",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Filter Coffee",
+        "Description": "Strong South Indian filter coffee",
+        "Price": 30,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "beverage,south-indian,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Rava Dosa",
+        "Description": "Crispy semolina dosa",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "dosa,south-indian,veg",
+        "Category": "Dosa",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Medu Vada",
+        "Description": "Soft lentil donuts",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "vada,south-indian,veg",
+        "Category": "Vada",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Pongal",
+        "Description": "Rice and lentil porridge with pepper and ghee",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "pongal,south-indian,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Butter Masala Dosa",
+        "Description": "Dosa with butter and spicy potato",
+        "Price": 110,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "dosa,south-indian,veg",
+        "Category": "Dosa",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Burger Bliss",
+    "items": [
+      {
+        "Title": "Veg Burger",
+        "Description": "Crispy veg patty with lettuce and cheese",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500",
+        "FoodTags": "burger,fast-food,veg",
+        "Category": "Burgers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Burger",
+        "Description": "Grilled chicken breast with mayo and lettuce",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500",
+        "FoodTags": "burger,fast-food,non-veg",
+        "Category": "Burgers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "French Fries",
+        "Description": "Crispy golden fries",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "sides,fast-food,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Wings (6 pcs)",
+        "Description": "Spicy chicken wings with dip",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "wings,fast-food,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Milkshake",
+        "Description": "Choice of chocolate, strawberry, or vanilla",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "beverage,fast-food,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Cheese Fries",
+        "Description": "Fries topped with melted cheddar",
+        "Price": 90,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "sides,fast-food,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veggie Wrap",
+        "Description": "Fresh veggies and hummus in a tortilla",
+        "Price": 110,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "wrap,fast-food,veg",
+        "Category": "Wraps",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Wrap",
+        "Description": "Grilled chicken with veggies and sauce",
+        "Price": 140,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "wrap,fast-food,non-veg",
+        "Category": "Wraps",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Onion Rings",
+        "Description": "Crispy fried onion rings",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "sides,fast-food,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Cold Drink (330ml)",
+        "Description": "Coke, Sprite, or Fanta",
+        "Price": 40,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "beverage,fast-food,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Thai Garden",
+    "items": [
+      {
+        "Title": "Pad Thai Noodles",
+        "Description": "Stir-fried rice noodles with vegetables and peanuts",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500",
+        "FoodTags": "noodles,thai,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Green Curry",
+        "Description": "Coconut milk based curry with vegetables",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=500",
+        "FoodTags": "curry,thai,veg",
+        "Category": "Curry",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tom Yum Soup",
+        "Description": "Spicy and sour soup with mushrooms and lemongrass",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "soup,thai,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Fried Rice",
+        "Description": "Fragrant rice with vegetables and Thai herbs",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,thai,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spring Rolls (Thai)",
+        "Description": "Crispy rolls with veg and glass noodles",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "starter,thai,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Sticky Rice",
+        "Description": "Steamed glutinous rice",
+        "Price": 90,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,thai,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Red Curry",
+        "Description": "Spicy red curry with vegetables and basil",
+        "Price": 330,
+        "ImageURL": "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=500",
+        "FoodTags": "curry,thai,veg",
+        "Category": "Curry",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Mango Sticky Rice",
+        "Description": "Sweet mango with sticky rice and coconut milk",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500",
+        "FoodTags": "dessert,thai,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Thai Iced Tea",
+        "Description": "Sweet and creamy Thai iced tea",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "beverage,thai,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Pad See Ew",
+        "Description": "Stir-fried wide noodles with broccoli and egg",
+        "Price": 260,
+        "ImageURL": "https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500",
+        "FoodTags": "noodles,thai,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Mughal Darbar",
+    "items": [
+      {
+        "Title": "Chicken Biryani",
+        "Description": "Hyderabadi style biryani with tender chicken",
+        "Price": 290,
+        "ImageURL": "https://images.unsplash.com/photo-1563379091339-03b21ab4a5f8?w=500",
+        "FoodTags": "biryani,mughlai,non-veg",
+        "Category": "Biryani",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Mutton Biryani",
+        "Description": "Rich mutton biryani with aromatic spices",
+        "Price": 390,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "biryani,mughlai,non-veg",
+        "Category": "Biryani",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Butter Chicken",
+        "Description": "Creamy tomato gravy with tandoori chicken",
+        "Price": 330,
+        "ImageURL": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500",
+        "FoodTags": "curry,mughlai,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Paneer Tikka Masala",
+        "Description": "Grilled paneer in a rich masala gravy",
+        "Price": 270,
+        "ImageURL": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500",
+        "FoodTags": "curry,mughlai,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Dal Tadka",
+        "Description": "Yellow dal tempered with garlic and cumin",
+        "Price": 190,
+        "ImageURL": "https://images.unsplash.com/photo-1546833999-b9f581a6e9ef?w=500",
+        "FoodTags": "dal,mughlai,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Garlic Naan",
+        "Description": "Tandoori bread with garlic and butter",
+        "Price": 45,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "bread,mughlai,veg",
+        "Category": "Breads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Roomali Roti",
+        "Description": "Thin hand-stretched bread",
+        "Price": 30,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "bread,mughlai,veg",
+        "Category": "Breads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Raita",
+        "Description": "Yogurt with cucumber and spices",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "sides,mughlai,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Kebab Platter",
+        "Description": "Assorted grilled kebabs (veg & non-veg)",
+        "Price": 450,
+        "ImageURL": "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500",
+        "FoodTags": "starter,mughlai,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Shahi Tukda",
+        "Description": "Fried bread soaked in sweet milk with nuts",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1589119908995-f8830c9f8a5d?w=500",
+        "FoodTags": "dessert,mughlai,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Pasta Paradise",
+    "items": [
+      {
+        "Title": "Penne Arrabiata",
+        "Description": "Penne in spicy tomato sauce",
+        "Price": 200,
+        "ImageURL": "https://images.unsplash.com/photo-1645112411342-68946d0b0c5c?w=500",
+        "FoodTags": "pasta,italian,veg",
+        "Category": "Pasta",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Fettuccine Alfredo",
+        "Description": "Creamy parmesan sauce with fettuccine",
+        "Price": 240,
+        "ImageURL": "https://images.unsplash.com/photo-1645112411342-68946d0b0c5c?w=500",
+        "FoodTags": "pasta,italian,veg",
+        "Category": "Pasta",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spaghetti Bolognese",
+        "Description": "Classic spaghetti with meat sauce",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1645112411342-68946d0b0c5c?w=500",
+        "FoodTags": "pasta,italian,non-veg",
+        "Category": "Pasta",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Lasagna",
+        "Description": "Layered pasta with cheese and meat sauce",
+        "Price": 300,
+        "ImageURL": "https://images.unsplash.com/photo-1645112411342-68946d0b0c5c?w=500",
+        "FoodTags": "pasta,italian,non-veg",
+        "Category": "Pasta",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Garlic Bread",
+        "Description": "Crispy bread with garlic butter",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=500",
+        "FoodTags": "starters,italian,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Caesar Salad",
+        "Description": "Grilled chicken with romaine and Caesar dressing",
+        "Price": 260,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "salad,italian,non-veg",
+        "Category": "Salads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Margherita Pizza",
+        "Description": "Classic cheese and tomato pizza",
+        "Price": 250,
+        "ImageURL": "https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500",
+        "FoodTags": "pizza,italian,veg",
+        "Category": "Pizza",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tiramisu",
+        "Description": "Coffee-flavoured Italian dessert",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500",
+        "FoodTags": "dessert,italian,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Minestrone Soup",
+        "Description": "Hearty Italian vegetable soup",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "soup,italian,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Bruschetta",
+        "Description": "Toasted bread with tomato and basil",
+        "Price": 110,
+        "ImageURL": "https://images.unsplash.com/photo-1573140247632-f8fd74997d5c?w=500",
+        "FoodTags": "starters,italian,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Green Leaf Salad Bar",
+    "items": [
+      {
+        "Title": "Classic Caesar Salad",
+        "Description": "Romaine lettuce, croutons, parmesan, Caesar dressing",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "salad,healthy,veg",
+        "Category": "Salads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Greek Salad",
+        "Description": "Cucumber, tomato, feta, olives, red onion",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "salad,healthy,veg",
+        "Category": "Salads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Quinoa Bowl",
+        "Description": "Quinoa with roasted vegetables and tahini",
+        "Price": 240,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "bowl,healthy,veg",
+        "Category": "Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Avocado Salad",
+        "Description": "Grilled chicken with avocado, greens, and lime dressing",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "salad,healthy,non-veg",
+        "Category": "Salads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Vegan Buddha Bowl",
+        "Description": "Brown rice, chickpeas, avocado, roasted veg",
+        "Price": 260,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "bowl,vegan,healthy,veg",
+        "Category": "Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Fresh Juice",
+        "Description": "Choice of orange, carrot, or green juice",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "beverage,healthy,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Smoothie Bowl",
+        "Description": "Acai or berry smoothie bowl with granola",
+        "Price": 200,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "bowl,healthy,veg",
+        "Category": "Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Hummus Wrap",
+        "Description": "Whole wheat wrap with hummus and fresh veggies",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "wrap,healthy,veg",
+        "Category": "Wraps",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tomato Soup",
+        "Description": "Creamy tomato basil soup",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "soup,healthy,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Fruit Platter",
+        "Description": "Seasonal fresh fruit",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500",
+        "FoodTags": "healthy,veg",
+        "Category": "Platters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Chaat Bazaar",
+    "items": [
+      {
+        "Title": "Pani Puri (6 pcs)",
+        "Description": "Crispy puri filled with spicy water and potato",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "chaat,street-food,veg",
+        "Category": "Chaat",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Bhel Puri",
+        "Description": "Puffed rice, sev, onions, tamarind chutney",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "chaat,street-food,veg",
+        "Category": "Chaat",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Aloo Tikki",
+        "Description": "Spiced potato patty with chutney",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "snack,street-food,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Samosa (2 pcs)",
+        "Description": "Crispy pastry with spiced potato filling",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "snack,street-food,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Dahi Vada",
+        "Description": "Soft lentil dumplings in yogurt with spices",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "chaat,street-food,veg",
+        "Category": "Chaat",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Papri Chaat",
+        "Description": "Crispy papri with potatoes, chickpeas, and chutneys",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "chaat,street-food,veg",
+        "Category": "Chaat",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Kachori",
+        "Description": "Flaky pastry filled with spiced lentils",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "snack,street-food,veg",
+        "Category": "Snacks",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chole Bhature",
+        "Description": "Spicy chickpea curry with fried bread",
+        "Price": 140,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "meal,street-food,veg",
+        "Category": "Meals",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Jalebi (100g)",
+        "Description": "Crispy sweet spirals",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1602357285804-1f6f6e5f2b9c?w=500",
+        "FoodTags": "sweets,street-food,veg",
+        "Category": "Sweets",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Lassi",
+        "Description": "Sweet or salted yogurt drink",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "beverage,street-food,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Sushi Express",
+    "items": [
+      {
+        "Title": "California Roll (8 pcs)",
+        "Description": "Crab, avocado, cucumber rolled in sushi rice",
+        "Price": 350,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "sushi,japanese,non-veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spicy Tuna Roll (8 pcs)",
+        "Description": "Tuna with spicy mayo and cucumber",
+        "Price": 400,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "sushi,japanese,non-veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Vegetarian Roll (8 pcs)",
+        "Description": "Avocado, cucumber, carrot, and pickled radish",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "sushi,japanese,veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Tempura Shrimp Roll (8 pcs)",
+        "Description": "Crispy shrimp tempura with avocado",
+        "Price": 420,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "sushi,japanese,non-veg",
+        "Category": "Sushi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Miso Soup",
+        "Description": "Classic Japanese miso soup with tofu and seaweed",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "soup,japanese,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Edamame",
+        "Description": "Steamed soy beans with salt",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "starter,japanese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Sashimi Platter",
+        "Description": "Assorted fresh fish slices (salmon, tuna, etc.)",
+        "Price": 600,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "sashimi,japanese,non-veg",
+        "Category": "Sashimi",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Teriyaki Bowl",
+        "Description": "Grilled chicken with teriyaki sauce, rice, and vegetables",
+        "Price": 320,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "rice,japanese,non-veg",
+        "Category": "Bowls",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Vegetable Tempura",
+        "Description": "Crispy battered vegetables",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "starter,japanese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Green Tea Ice Cream",
+        "Description": "Matcha flavoured ice cream",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=500",
+        "FoodTags": "dessert,japanese,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Spice Garden",
+    "items": [
+      {
+        "Title": "Chicken Manchurian",
+        "Description": "Fried chicken in tangy Manchurian sauce",
+        "Price": 250,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "chinese,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Gobi Manchurian",
+        "Description": "Cauliflower in spicy Manchurian sauce",
+        "Price": 200,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "chinese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Paneer Chilli",
+        "Description": "Cottage cheese in spicy chilli sauce",
+        "Price": 240,
+        "ImageURL": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=500",
+        "FoodTags": "chinese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Fried Rice",
+        "Description": "Rice with chicken and vegetables",
+        "Price": 210,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,chinese,non-veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Fried Rice",
+        "Description": "Rice with vegetables and egg",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,chinese,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Hakka Noodles",
+        "Description": "Noodles with chicken and vegetables",
+        "Price": 220,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "noodles,chinese,non-veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Hakka Noodles",
+        "Description": "Noodles with vegetables",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "noodles,chinese,veg",
+        "Category": "Noodles",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Schezwan Fried Rice",
+        "Description": "Spicy schezwan style rice",
+        "Price": 190,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,chinese,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Spring Rolls (4 pcs)",
+        "Description": "Crispy vegetable rolls",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "starter,chinese,veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Hot and Sour Soup",
+        "Description": "Spicy and tangy soup with vegetables",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500",
+        "FoodTags": "soup,chinese,veg",
+        "Category": "Soups",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Cafe Mocha",
+    "items": [
+      {
+        "Title": "Cappuccino",
+        "Description": "Classic Italian coffee with frothy milk",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "coffee,beverage,veg",
+        "Category": "Coffee",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Latte",
+        "Description": "Espresso with steamed milk and microfoam",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "coffee,beverage,veg",
+        "Category": "Coffee",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Cold Brew",
+        "Description": "Smooth cold-brewed coffee",
+        "Price": 130,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "coffee,beverage,veg",
+        "Category": "Coffee",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Croissant",
+        "Description": "Buttery French pastry",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "bakery,cafe,veg",
+        "Category": "Bakery",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chocolate Brownie",
+        "Description": "Rich chocolate brownie with nuts",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "dessert,bakery,cafe,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Sandwich",
+        "Description": "Grilled sandwich with fresh vegetables and cheese",
+        "Price": 150,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "sandwich,cafe,veg",
+        "Category": "Sandwiches",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Sandwich",
+        "Description": "Grilled chicken with lettuce and mayo",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "sandwich,cafe,non-veg",
+        "Category": "Sandwiches",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Muffin",
+        "Description": "Choice of blueberry, chocolate chip, or banana",
+        "Price": 90,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "bakery,cafe,veg",
+        "Category": "Bakery",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Fresh Juice",
+        "Description": "Orange, apple, or mixed fruit juice",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "beverage,cafe,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Cheesecake",
+        "Description": "Classic New York cheesecake",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+        "FoodTags": "dessert,cafe,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Deji Corner",
+    "items": [
+      {
+        "Title": "Chicken Wrap",
+        "Description": "Tortilla with grilled chicken, lettuce, and sauce",
+        "Price": 140,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "wrap,fast-food,non-veg",
+        "Category": "Wraps",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Wrap",
+        "Description": "Tortilla with hummus, vegetables, and cheese",
+        "Price": 110,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "wrap,fast-food,veg",
+        "Category": "Wraps",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Club Sandwich",
+        "Description": "Triple decker sandwich with chicken, bacon, lettuce",
+        "Price": 160,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "sandwich,fast-food,non-veg",
+        "Category": "Sandwiches",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Club Sandwich",
+        "Description": "Triple decker with grilled veggies and cheese",
+        "Price": 130,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "sandwich,fast-food,veg",
+        "Category": "Sandwiches",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "French Fries",
+        "Description": "Crispy golden fries",
+        "Price": 60,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "sides,fast-food,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Onion Rings",
+        "Description": "Crispy onion rings",
+        "Price": 70,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "sides,fast-food,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Nuggets (6 pcs)",
+        "Description": "Crispy chicken nuggets with dip",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "starter,fast-food,non-veg",
+        "Category": "Starters",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Veg Burger",
+        "Description": "Veg patty with lettuce and cheese",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500",
+        "FoodTags": "burger,fast-food,veg",
+        "Category": "Burgers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Burger",
+        "Description": "Grilled chicken burger with mayo",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500",
+        "FoodTags": "burger,fast-food,non-veg",
+        "Category": "Burgers",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Milkshake",
+        "Description": "Chocolate, vanilla, or strawberry",
+        "Price": 100,
+        "ImageURL": "https://images.unsplash.com/photo-1551504734-b464e32a163a?w=500",
+        "FoodTags": "beverage,fast-food,veg",
+        "Category": "Beverages",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  },
+  {
+    "restaurantTitle": "Vinay Hotel",
+    "items": [
+      {
+        "Title": "Butter Chicken",
+        "Description": "Creamy tomato gravy with chicken",
+        "Price": 310,
+        "ImageURL": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500",
+        "FoodTags": "curry,mughlai,non-veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Paneer Butter Masala",
+        "Description": "Paneer in rich butter gravy",
+        "Price": 260,
+        "ImageURL": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=500",
+        "FoodTags": "curry,mughlai,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Dal Tadka",
+        "Description": "Tempered yellow dal",
+        "Price": 180,
+        "ImageURL": "https://images.unsplash.com/photo-1546833999-b9f581a6e9ef?w=500",
+        "FoodTags": "dal,mughlai,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Garlic Naan",
+        "Description": "Tandoori bread with garlic",
+        "Price": 45,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "bread,mughlai,veg",
+        "Category": "Breads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Roti",
+        "Description": "Whole wheat bread",
+        "Price": 20,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "bread,mughlai,veg",
+        "Category": "Breads",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Jeera Rice",
+        "Description": "Basmati rice with cumin seeds",
+        "Price": 120,
+        "ImageURL": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=500",
+        "FoodTags": "rice,mughlai,veg",
+        "Category": "Rice",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Chicken Biryani",
+        "Description": "Spiced rice with chicken",
+        "Price": 280,
+        "ImageURL": "https://images.unsplash.com/photo-1563379091339-03b21ab4a5f8?w=500",
+        "FoodTags": "biryani,mughlai,non-veg",
+        "Category": "Biryani",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Raita",
+        "Description": "Yogurt with cucumber",
+        "Price": 50,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "sides,mughlai,veg",
+        "Category": "Sides",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Gulab Jamun",
+        "Description": "Sweet milk dumplings",
+        "Price": 80,
+        "ImageURL": "https://images.unsplash.com/photo-1589119908995-f8830c9f8a5d?w=500",
+        "FoodTags": "dessert,mughlai,veg",
+        "Category": "Desserts",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      },
+      {
+        "Title": "Mixed Veg Curry",
+        "Description": "Assorted vegetables in a mild gravy",
+        "Price": 190,
+        "ImageURL": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500",
+        "FoodTags": "curry,mughlai,veg",
+        "Category": "Main Course",
+        "isAvaliable": true,
+        "Rating": 4,
+        "mealType": "both"
+      }
+    ]
+  }
+]

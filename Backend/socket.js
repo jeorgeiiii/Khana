@@ -15,6 +15,12 @@ const initSocket = (server) => {
     io.on('connection', (socket) => {
         console.log('🔌 New client connected:', socket.id);
         
+        socket.on('join-user', ({ userId }) => {
+            if (!userId) return;
+            socket.join(`user-${userId}`);
+            console.log(`👤 User ${userId} joined their notification room`);
+        });
+
         // Driver joins with their ID
         socket.on('driver-join', (data) => {
             const { driverId, orderId, name, phone, vehicle } = data;

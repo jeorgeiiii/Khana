@@ -23,7 +23,12 @@ import ChatBot from './components/ChatBot';
 // Login imports
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import CreateSubscription from "./pages/CreateSubscription";
+import FavoritesPage from "./pages/FavoritesPage";
 import RefrshHandler from "./RefrshHandler";
+import socketService from './services/socketService';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 
 // Home component
@@ -272,6 +277,33 @@ function App() {
     if (savedRestaurant) setSelectedRestaurantForCart(JSON.parse(savedRestaurant));
   }, []);
 
+  React.useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const userId = user?._id || user?.id || user?.userId;
+
+    if (!userId) return;
+
+    socketService.joinUser(userId);
+
+    const handlePaymentRequired = (data) => {
+      const itemName = data.itemName || 'your thali';
+      const amount = data.amount || 0;
+      const expiresAt = data.expiresAt ? new Date(data.expiresAt).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : 'soon';
+
+      toast.info(`Payment reminder: ${itemName} for ₹${amount}. Pay before ${expiresAt}.`, {
+        autoClose: false,
+        position: 'top-right'
+      });
+    };
+
+    socketService.onPaymentRequired(handlePaymentRequired);
+
+    return () => socketService.offPaymentRequired(handlePaymentRequired);
+  }, [isAuthenticated]);
+
   // Logged-in check only
   const PrivateRoute = ({ element }) => {
     const token = localStorage.getItem('token');
@@ -342,7 +374,11 @@ function App() {
 
           {/* Daily thali subscriptions */}
           <Route path="/subscriptions" element={
-            <PrivateRoute element={<Subscriptions />} />
+            <PrivateRoute element={<CreateSubscription />} />
+          } />
+
+          <Route path="/favorites" element={
+            <PrivateRoute element={<FavoritesPage />} />
           } />
 
           <Route path="/cart" element={
@@ -374,6 +410,7 @@ function App() {
 
         {/* Floating thali assistant — appears on every page */}
         <ChatBot />
+        <ToastContainer />
       </div>
     </BrowserRouter>
   );

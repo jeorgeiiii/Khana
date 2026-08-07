@@ -124,6 +124,32 @@ function Card({ onRestaurantClick, location = "Indore", filters = {} }) {
                         <div className="food-address">
                             {restaurant.address || restaurant.Coords?.address || ''}
                         </div>
+                        <div style={{ marginTop: 8, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                            <button
+                                type="button"
+                                onClick={(event) => {
+                                    event.stopPropagation();
+                                    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                                    const exists = favorites.some(item => item._id === (restaurant._id || restaurant.id));
+                                    const next = exists ? favorites : [...favorites, restaurant];
+                                    localStorage.setItem('favorites', JSON.stringify(next));
+                                    window.alert('Added to favorites');
+                                }}
+                                style={{ border: '1px solid #e23744', borderRadius: 999, padding: '6px 10px', background: '#fff', color: '#e23744', cursor: 'pointer', fontSize: 12 }}
+                            >
+                                ♥ Favorite
+                            </button>
+                            <button
+                                type="button"
+                                onClick={(event) => {
+                                    event.stopPropagation();
+                                    window.location.href = '/favorites';
+                                }}
+                                style={{ border: '1px solid #ddd', borderRadius: 999, padding: '6px 10px', background: '#fff', cursor: 'pointer', fontSize: 12 }}
+                            >
+                                View favorites
+                            </button>
+                        </div>
                     </div>
                 </div>
             ))}

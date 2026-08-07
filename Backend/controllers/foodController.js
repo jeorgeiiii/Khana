@@ -122,13 +122,21 @@ const getFoodByResturantController= async(req,res)=>{
                 message:'Pleae Prvide Correct Food ID'
             })
         }
-        const food =await foodModel.find({resturant:resturantid})
-        if(!food){
-            return res.status(404).send({
-                success:false,
-                message:'No Food Found With This ID'
+        const food = await foodModel.find({
+            $or: [
+                { resturant: resturantid },
+                { restaurantId: resturantid }
+            ]
+        }).sort({ createdAt: -1 });
+
+        if (!food || food.length === 0) {
+            return res.status(200).send({
+                success:true,
+                message:'No menu items found for this restaurant',
+                food: []
             });
         }
+
         res.status(200).send({
             success:true,
             message:'Food Based On Resturant',

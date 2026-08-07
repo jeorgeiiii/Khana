@@ -1,0 +1,22 @@
+{
+  "name": "main_project",
+  "version": "1.0.0",
+  "description": "🍔 Zomoro - Food Delivery Platform\r https://img.shields.io/badge/license-MIT-blue.svg\r https://img.shields.io/badge/Node.js-20.x-green.svg\r https://img.shields.io/badge/React-18.x-blue.svg\r https://img.shields.io/badge/MongoDB-6.x-green.svg\r https://img.shields.io/badge/Socket.io-4.x-black.svg",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeorgeiiii/Khana.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeorgeiiii/Khana/issues"
+  },
+  "homepage": "https://github.com/jeorgeiiii/Khana#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.1.2"
+  }
+}
